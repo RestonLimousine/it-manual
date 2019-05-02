@@ -172,7 +172,7 @@ for (var i = 0; i < sections.length; i++) {
     height += elHeight;
   }
   
-  tableOfContents.push([header.innerText, header.id, startPage]);
+  tableOfContents.push([header.innerText, header.id, startPage.toString()]);
   
   currPage.appendChild(section);
 }
@@ -186,5 +186,6 @@ for (i = 0; i < tableOfContents.length; i++) {
       sectionName = ["a", {href: "#" + cont[1]}, cont[0]],
       sectionPage = ["a", {href: "#page-" + cont[2]}, cont[2]],
       div = ["div", sectionName, " ", sectionPage];
+  console.log(div);
   tableOfContentsPage.appendChild(createElement(div));
 }
