@@ -45,7 +45,7 @@ var doc = [
 ];
 
 function createElement(el) {
-  if (typeof el === "string") el = ["span" el];
+  if (typeof el === "string") el = ["span", el];
   var tag = el[0],
       contents = el.slice(1),
       realTag = tag,
