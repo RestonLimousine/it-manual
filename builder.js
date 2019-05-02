@@ -187,6 +187,7 @@ function buildManual (fileName, text) {
       tableOfContents = [];
 
   for (var i = 0; i < sections.length; i++) {
+    console.log(i);
     var section = sections[i],
         header = section.getElementsByTagName("h1")[0],
         pageRemaining = pageHeight - height,
