@@ -216,11 +216,11 @@ function buildManual (fileName, text) {
           cutOff += node.offsetHeight + 16;
           var diff = pageRemaining - cutOff;
           if (diff < 0) {
+            console.log(diff, Math.ceil(Math.abs(diff) / 16) * 16);
             cutOff -= Math.ceil(Math.abs(diff) / 16) * 16;
             break;
           }
         }
-        // var cutOff = Math.floor((pageRemaining - headerHeight - 16) / 32) * 32 + headerHeight + 16;
         beforeBreak.style.height = cutOff;
         currPage.appendChild(beforeBreak);
         section.style.height = elHeight - cutOff;
