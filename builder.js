@@ -211,6 +211,8 @@ function buildManual (fileName, text) {
       pageLink.href = "#page-" + pageNo;
       pageLink.id = "page-" + pageNo;
     
+      console.log(pageRemaining, headerHeight);
+      
       if (pageRemaining >= headerHeight + 32) {
         var cutOff = headerHeight;
         for (var j = 1; j < section.childNodes.length; j++) {
