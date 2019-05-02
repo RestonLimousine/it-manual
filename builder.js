@@ -223,7 +223,7 @@ function buildManual (fileName, text) {
           }
         }
         var cutOffDiff = sectionHeight - cutOff;
-        height = cutOffDiff + 16;
+        height = -cutOff;
         beforeBreak.style.height = cutOff;
         currPage.appendChild(beforeBreak);
         section.style.height = cutOffDiff;
@@ -231,6 +231,7 @@ function buildManual (fileName, text) {
         section.style.flexDirection = "column";
         section.style.justifyContent = "flex-end";
         section.id = "";
+        sections = sections.slice(0, i).concat([section]).concat(sections.slice(i + 1));
       }
       currPage = newPage;
       document.body.appendChild(currPage);
@@ -238,7 +239,7 @@ function buildManual (fileName, text) {
       height += sectionHeight;
     }
   
-    tableOfContents.push([header.innerText, sectionId, startPage]);
+    if (sectionId) tableOfContents.push([header.innerText, sectionId, startPage]);
   
     currPage.appendChild(section);
   }
