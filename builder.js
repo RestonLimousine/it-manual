@@ -122,7 +122,7 @@ function parseItem (item) {
       listItems = item.split(splitRe);
       el = [tag];
       for (var i = 0; i < listItems.length; i++) {
-        el.push(["li"].concat(parseText(listItems[i])]);
+        el.push(["li"].concat(parseText(listItems[i])));
       }
     break;
     default:
