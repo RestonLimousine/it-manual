@@ -46,23 +46,28 @@ var doc = [
 
 function createElement(el) {
   if (typeof el === "string") el = ["span", el];
-  console.log(el);
+  
   var tag = el[0],
       contents = el.slice(1),
       realTag = tag,
       attrs = {};
+  
   if (contents[0].constructor === Object) {
     attrs = contents[0];
     contents = contents.slice(1);
   }
+  
   switch (tag) {
     case "mailto": case "linkto": realTag = "a"; break;
     case "section": realTag = "div"; break;
   }
+  
   el = document.createElement(realTag);
+  
   for (var prop in attrs) {
     el.setAttribute(prop, attrs[prop]);
   }
+  
   switch (tag) {
     case "mailto":
       el.href = "mailto:" + contents[0];
@@ -83,6 +88,7 @@ function createElement(el) {
       contents.unshift(h1);
     break;
   }
+  
   if (tag === "span") {
     el.innerText = contents[0];
   } else {
@@ -91,6 +97,7 @@ function createElement(el) {
       el.appendChild(contents[i]);
     }
   }
+  
   return el;
 }
 
@@ -103,46 +110,42 @@ function buildDoc (els) {
 }
 
 document.body.innerHTML = "";
-/*
-var page = document.createElement("div");
-page.className = "page";
-var pageNo = document.createElement("div");
-pageNo.className = "page-number";
-var pageLink = document.createElement("a");
-pageLink.href = "#page-1";
-pageLink.id = "page-1";
-pageLink.innerText = "1";
-pageNo.appendChild(pageLink);
-page.appendChild(pageNo);
-*/
+
 var page = createElement([
   "div", {"class": "page"},
   ["div", {"class": "page-number"},
     ["a", {href: "#page-1", id: "page-1"}, "1"]]
 ]);
+
 var firstPage = page.cloneNode(true);
 document.body.appendChild(firstPage);
+
 var sections = buildDoc(doc);
 var height = 0,
     pageNo = 1,
     pageHeight = 9 * 96,
     currPage = firstPage;
-// sections = document.getElementsByClassName("section");
-// sections = [].slice.call(sections);
+
 for (var i = 0; i < sections.length; i++) {
   var section = sections[i],
       pageRemaining = pageHeight - height;
+  
   currPage.appendChild(section);
+  
   var elHeight = section.clientHeight;
+  
   if (elHeight > pageRemaining) {
     height = 0;
     pageNo++;
+    
     var beforeBreak = section.cloneNode(true),
         newPage = page.cloneNode(true),
         pageLink = newPage.querySelector(".page-number a");
+    
     pageLink.innerText = pageNo;
     pageLink.href = "#page-" + pageNo;
     pageLink.id = "page-" + pageNo;
+    
     if (pageRemaining >= 65) {
       // var children = [].slice.call(section.childNodes);
       // for (var j = 0; j < children.length; j++) {
@@ -161,5 +164,5 @@ for (var i = 0; i < sections.length; i++) {
   } else {
     height += elHeight;
   }
-  if (pageNo > 1) currPage.appendChild(section);
+  currPage.appendChild(section);
 }
