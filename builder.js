@@ -1,4 +1,4 @@
-function createElement(el) {
+function createElement (el) {
   if (el.constructor !== Array) el = ["span", el];
   
   var tag = el[0],
@@ -133,6 +133,7 @@ function parseItem (item) {
     default:
       el = ["p"].concat(parseText(item));
   }
+  console.log(el);
   return el;
 }
 
