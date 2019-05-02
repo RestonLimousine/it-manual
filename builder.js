@@ -235,7 +235,7 @@ function buildManual (fileName, text) {
         sections = sections.slice(0, i + 1).concat([section]).concat(sections.slice(i + 1));
       }
       currPage = newPage.getElementsByClassName("content")[0];
-      document.body.appendChild(currPage);
+      document.body.appendChild(newPage);
     } else {
       height += sectionHeight;
     }
