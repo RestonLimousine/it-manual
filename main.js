@@ -82,7 +82,8 @@ function createElement(el) {
     case "section":
       var title = el.getAttribute("title"),
           id = title.toLowerCase().replace(/ /g, "-"),
-          h1 = ["h1", ["a", {href: "#" + id}, title]];
+          a = ["a", {href: "#" + id}, title],
+          h1 = ["h1", {"class": "section-header"}, a];
       el.id = id;
       el.className = "section";
       contents.unshift(h1);
