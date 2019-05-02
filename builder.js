@@ -136,7 +136,7 @@ function parseItem (item) {
         for (var j = 0; j < content.length; j++) {
           var thisItem = parseItem(content[j]);
           if (thisItem[0] === lastItem[0]) {
-            lastItem.push(thisItem.slice(1));
+            lastItem.push(thisItem[1]);
           } else {
             lastItem = thisItem;
             listItem.push(thisItem);
