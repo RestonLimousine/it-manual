@@ -190,11 +190,12 @@ function buildManual (fileName, text) {
     var section = sections[i],
         header = section.getElementsByTagName("h1")[0],
         pageRemaining = pageHeight - height,
-        startPage = pageNo,
-        elHeight = section.offsetHeight;
+        startPage = pageNo;
   
     currPage.appendChild(section);
   
+    var elHeight = section.offsetHeight;
+    
     if (elHeight - 16 > pageRemaining) {
       
       height = 0;
