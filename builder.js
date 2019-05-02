@@ -64,9 +64,7 @@ function buildDoc (els) {
   return accum;
 }
 
-function parseNotation (start, end, text) {
-  console.log(start, end, text);
-  text = text.slice(start.length, text.length - end.length);
+function parseNotation (start, text) {
   var tag,
       attrs = {},
       hrefPrefix = "",
@@ -104,12 +102,14 @@ function parseText (text) {
           "[email:": "]"
         },
         specialEnd = specialEnds[specialStart],
-        specialEndIdx = text.indexOf(specialEnd),
-        special = text.slice(specialStartIdx, specialEndIdx),
-        afterSpecial = text.slice(specialEndIdx);
+        textChopped = text.slice(specialStartIdx + specialStart.length),
+        specialEndIdx = textChopped.indexOf(specialEnd),
+        afterSpecialIdx = specialEndIdx + specialEnd.length,
+        special = textChopped.slice(0, specialEndIdx),
+        afterSpecial = textChopped.slice(afterSpecialIdx);
     out = [];
     if (beforeSpecial.length > 0) out.push(beforeSpecial);
-    out.push(parseNotation(specialStart, specialEnd, special));
+    out.push(parseNotation(specialStart, special));
     if (afterSpecial.length > 0) out = out.concat(parseText(afterSpecial));
   }
   return out;
