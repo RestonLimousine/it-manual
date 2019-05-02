@@ -132,7 +132,7 @@ function parseItem (item) {
       for (var i = 1; i < listItems.length; i++) {
         var listItem = ["li"],
             content = listItems[i].split(/\n/),
-            lastItem;
+            lastItem = [];
         for (var j = 0; j < content.length; j++) {
           var thisItem = parseItem(content[j]);
           if (thisItem[0] === lastItem[0]) {
@@ -230,7 +230,6 @@ function buildManual (fileName, text) {
         currPage.appendChild(beforeBreak);
         if (beforeBreak.style.height) {
           var beforeBreakHeight = beforeBreak.offsetHeight;
-          console.log(pageHeight, beforeBreakHeight, cutOff);
           currPage.style.height = cutOff;
         } else {
           beforeBreak.style.height = cutOff;
