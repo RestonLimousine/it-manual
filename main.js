@@ -8,7 +8,7 @@ var doc = [
     ["p",
       "If you are reading a printed or PDF version of this manual, it might be out of " +
       "date. You can always find the current version of this manual at",
-      ["linkto" "https://restonlimo.com/internal/employee-it-manual"]]
+      ["linkto", "https://restonlimo.com/internal/employee-it-manual"]]
   ],
   ["section", {title: "IT Department Contact Info"},
     ["p",
