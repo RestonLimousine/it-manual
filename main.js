@@ -51,7 +51,7 @@ function createElement(el) {
       contents = el.slice(1),
       realTag = tag,
       attrs = {};
-  if (typeof contents[0] === "object") {
+  if (contents[0].constructor === Object) {
     attrs = contents[0];
     contents = contents.slice(1);
   }
@@ -100,6 +100,11 @@ function buildDoc (els) {
 
 document.body.innerHTML = "";
 var page = document.createElement("div");
+/*
+var page = createElement(["div",
+  {className: "page"}
+]);
+*/
 page.className = "page";
 var pageNo = document.createElement("div");
 pageNo.className = "page-number";
