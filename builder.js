@@ -223,10 +223,12 @@ function buildManual (fileName, text) {
         // var cutOff = Math.floor((pageRemaining - headerHeight - 16) / 32) * 32 + headerHeight + 16;
         beforeBreak.style.height = cutOff;
         currPage.appendChild(beforeBreak);
+        console.log(elHeight, cutOff);
         section.style.height = elHeight - cutOff;
         section.style.display = "flex";
         section.style.flexDirection = "column";
         section.style.justifyContent = "flex-end";
+        section.id = null;
       }
       currPage = newPage;
       document.body.appendChild(currPage);
@@ -244,7 +246,7 @@ function buildManual (fileName, text) {
       tableOfContentsPage = createElement([
         "div", {class: "page"},
         ["h1", {class: "main-title"}, fileName],
-        ["i", ["b", "Note: "],
+        ["p", ["b", "Note: "],
               "If you are reading a PDF or printed version of this manual, " +
               "it may be out of date. The latest version can be found online at ",
           ["a", {href: pageloc, target: "__blank"}, pageloc]],
