@@ -93,21 +93,25 @@ function parseNotation (start, end, text) {
 
 function parseText (text) {
   var specialStart = text.match(/\*|\[link:|\[email:/),
-      specialStartIdx = text.indexOf(specialStart),
-      beforeSpecial = text.slice(0, specialStartIdx),
-      specialEnds = {
-        "*": "*",
-        "[link:": "]",
-        "[email:": "]"
-      },
-      specialEnd = specialEnds[specialStart],
-      specialEndIdx = text.indexOf(specialEnd),
-      special = text.slice(specialStartIdx, specialEndIdx),
-      afterSpecial = text.slice(specialEndIdx),
-      out = [];
-  if (beforeSpecial.length > 0) out.push(beforeSpecial);
-  out.push(parseNotation(specialStart, specialEnd, special));
-  if (afterSpecial.length > 0) out = out.concat(parseText(afterSpecial));
+      out = [text];
+  if (specialStart) {
+    specialStart = specialStart[0];
+    var specialStartIdx = text.indexOf(specialStart),
+        beforeSpecial = text.slice(0, specialStartIdx),
+        specialEnds = {
+          "*": "*",
+          "[link:": "]",
+          "[email:": "]"
+        },
+        specialEnd = specialEnds[specialStart],
+        specialEndIdx = text.indexOf(specialEnd),
+        special = text.slice(specialStartIdx, specialEndIdx),
+        afterSpecial = text.slice(specialEndIdx);
+    out = [];
+    if (beforeSpecial.length > 0) out.push(beforeSpecial);
+    out.push(parseNotation(specialStart, specialEnd, special));
+    if (afterSpecial.length > 0) out = out.concat(parseText(afterSpecial));
+  }
   return out;
 }
 
