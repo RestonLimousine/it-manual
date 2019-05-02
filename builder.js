@@ -30,7 +30,7 @@ function createElement (el) {
     break;
     case "linkto":
       el.href = el.innerText = contents[0];
-      el.target = "__blank";
+      el.target = "_blank";
       contents = [];
     break;
     case "section":
@@ -69,7 +69,7 @@ function parseNotation (start, text) {
       attrs = {},
       hrefPrefix = "",
       content = [],
-      target = "__blank";
+      target = "_blank";
   switch (start) {
     case "[email:":
       hrefPrefix = "mailto:";
@@ -131,13 +131,15 @@ function parseItem (item) {
       el = [tag];
       for (var i = 1; i < listItems.length; i++) {
         var listItem = ["li"],
-            content = listItems[i].split(/\n/);
+            content = listItems[i].split(/\n/),
+            lastItem;
         for (var j = 0; j < content.length; j++) {
-          var thisContent = parseItem(content[j]);
-          if (thisContent[0] === "p") {
-            listItem = listItem.concat(thisContent.slice(1));
+          var thisItem = parseItem(content[j]);
+          if (thisItem[0] === lastItem[0]) {
+            lastItem.push(thisItem.slice(1));
           } else {
-            listItem.push(thisContent);
+            lastItem = thisItem;
+            listItem.push(thisItem);
           }
         }
         el.push(listItem);
@@ -258,7 +260,7 @@ function buildManual (fileName, text) {
         ["p", ["b", "Note: "],
               "If you are reading a PDF or printed version of this manual, " +
               "it may be out of date. The latest version can be found online at ",
-          ["a", {href: pageloc, target: "__blank"}, pageloc]],
+          ["a", {href: pageloc, target: "_blank"}, pageloc]],
         ["h1", {class: "section-header"}, "Table Of Contents"]
       ]);
 
