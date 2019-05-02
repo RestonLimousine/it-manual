@@ -225,6 +225,7 @@ function buildManual (fileName, text) {
           }
         }
         var cutOffDiff = sectionHeight - cutOff;
+        currPage.appendChild(beforeBreak);
         if (beforeBreak.style.height) {
           var beforeBreakHeight = beforeBreak.offsetHeight;
           console.log(pageHeight, beforeBreakHeight, cutOff);
@@ -232,7 +233,6 @@ function buildManual (fileName, text) {
         } else {
           beforeBreak.style.height = cutOff;
         }
-        currPage.appendChild(beforeBreak);
         section.style.height = cutOffDiff;
         section.style.display = "flex";
         section.style.flexDirection = "column";
