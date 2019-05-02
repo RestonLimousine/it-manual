@@ -1,53 +1,46 @@
 var doc = [
-  [
-    "section", {title: "RLS Employee IT Manual"},
-    [
-      "p", {},
+  ["section", {title: "RLS Employee IT Manual"},
+    ["p",
       "Welcome to Reston Limousine! This guide is provided by the IT Department " +
       "to help new employees navigate the various IT systems we use, and also to " +
-      "provide a reference for employees to use throughout their time at Reston Limousine."
-    ],
-    [
-      "p", {},
-      "If you are reading a printed or PDF version of this manual, it might be out of date. You can always find the current version of this manual at",
-      ["linkto" "https://restonlimo.com/internal/employee-it-manual"]
-    ]
-]
-[section {title: IT Department Contact Info}
-  [p
-    If you have any questions about the content of this manual or anything else related to IT systems, please reach out to the IT department:
-  ]
-  [ul
-    [li [b Department Email: ][mailto it@restonlimo.com]]
-    [li [b Manager: ]Bonnie Custer
-      [ul
-        [li [b Email: ][mailto bcuster@restonlimo.com]]
-        [li [b Extension: ]538]
-      ]
-    ]
-  ]
-]
-[section {title: First Steps}
-  [p
-    If you have just been hired, here is what to expect in your first few days:
-  ]
-  [ol
-    [li [b PC & Workstation: ]Your manager will show you to the area where you will work.]
-    [li [b Network Credentials: ]IT will create a network account for you, and your manager will provide you the credentials you will use to log into your PC the first time.]
-    [li [b Phone Extension: ]If your workstation includes a desk phone, IT will register your extension.]
-  ]
-  [p
-    Here is what you need to do after the above:
-  ]
-  [ol
-    [li [b Log Into PC: ]Use your new network credentials to log into your PC. Open up Outlook -- the first time, you may need to enter your network credentials again, but you can choose to save them so you don't have to enter them in the future.]
-  ]
-]
-</div>
-<script>
-var doc = [
-  [
-    "section", {title: 
+      "provide a reference for employees to use throughout their time at Reston Limousine."],
+    ["p",
+      "If you are reading a printed or PDF version of this manual, it might be out of " +
+      "date. You can always find the current version of this manual at",
+      ["linkto" "https://restonlimo.com/internal/employee-it-manual"]]
+  ],
+  ["section", {title: "IT Department Contact Info"},
+    ["p",
+      "If you have any questions about the content of this manual or anything else " +
+      "related to IT systems, please reach out to the IT department:"],
+    ["ul",
+      ["li", ["b", "Department Email: "], ["mailto", "it@restonlimo.com"]],
+      ["li", ["b", "Manager: "], "Bonnie Custer",
+      ["ul",
+        ["li", ["b", "Email: "], ["mailto", "bcuster@restonlimo.com"]],
+        ["li", ["b", "Extension: "], "538"]]]],
+  ["section", {title: "First Steps"},
+    ["p",
+      "If you have just been hired, here is what to expect in your first few days:"],
+    ["ol",
+      ["li",
+        ["b", "PC & Workstation: "],
+        "Your manager will show you to the area where you will work."],
+      ["li",
+        ["b", "Network Credentials: "],
+        "IT will create a network account for you, and your manager will provide " +
+        "you the credentials you will use to log into your PC the first time."],
+      ["li",
+        ["b", "Phone Extension: "],
+        "If your workstation includes a desk phone, IT will register your extension."]],
+    ["p",
+      "Here is what you need to do after the above:"],
+    ["ol",
+      ["li",
+        ["b", "Log Into PC: "],
+        "Use your new network credentials to log into your PC. Open up Outlook -- " +
+        "the first time, you may need to enter your network credentials again, but " +
+       "you can choose to save them so you don't have to enter them in the future."]]]
 ];
 document.head.innerHTML += '<meta name="viewport" content="width=device-width, initial-scale=1">';
 function appendContents (parent, contents) {
