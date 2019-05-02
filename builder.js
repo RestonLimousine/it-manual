@@ -190,7 +190,8 @@ function buildManual (fileName, text) {
     var section = sections[i],
         header = section.getElementsByTagName("h1")[0],
         pageRemaining = pageHeight - height,
-        startPage = pageNo;
+        startPage = pageNo,
+        sectionId = section.id;
   
     currPage.appendChild(section);
   
@@ -227,7 +228,7 @@ function buildManual (fileName, text) {
         section.style.display = "flex";
         section.style.flexDirection = "column";
         section.style.justifyContent = "flex-end";
-        section.id = null;
+        section.id = "";
       }
       currPage = newPage;
       document.body.appendChild(currPage);
@@ -236,7 +237,7 @@ function buildManual (fileName, text) {
       height += elHeight;
     }
   
-    tableOfContents.push([header.innerText, section.id, startPage]);
+    tableOfContents.push([header.innerText, sectionId, startPage]);
   
     currPage.appendChild(section);
   }
