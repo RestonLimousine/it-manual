@@ -190,13 +190,12 @@ function buildManual (fileName, text) {
     var section = sections[i],
         header = section.getElementsByTagName("h1")[0],
         pageRemaining = pageHeight - height,
-        startPage = pageNo;
+        startPage = pageNo,
+        elHeight = section.offsetHeight;
   
     currPage.appendChild(section);
   
-    var elHeight = section.offsetHeight;
-  
-    if (elHeight > pageRemaining) {
+    if (elHeight - 16 > pageRemaining) {
       console.log(elHeight, pageRemaining);
       
       height = 0;
@@ -218,7 +217,6 @@ function buildManual (fileName, text) {
           cutOff += node.offsetHeight + 16;
           var diff = pageRemaining - cutOff;
           if (diff < 0) {
-            console.log(diff, Math.ceil(Math.abs(diff) / 16) * 16);
             cutOff -= Math.ceil(Math.abs(diff) / 16) * 16;
             break;
           }
