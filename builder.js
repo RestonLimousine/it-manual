@@ -196,7 +196,9 @@ function buildManual (fileName, text) {
   
     var elHeight = section.offsetHeight;
   
-    if (elHeight > pageRemaining - 16) {
+    if (elHeight > pageRemaining) {
+      console.log(elHeight, pageRemaining);
+      
       height = 0;
       pageNo++;
     
