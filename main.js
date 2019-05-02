@@ -185,6 +185,6 @@ for (i = 0; i < tableOfContents.length; i++) {
   var cont = tableOfContents[i],
       sectionName = ["a", {href: "#" + cont[1]}, cont[0]],
       sectionPage = ["a", {href: "#page-" + cont[2]}, cont[2]],
-      div = ["div", sectionName, " ", sectionPage];
+      div = ["div", {class: "contents-listing"}, sectionName, " ", sectionPage];
   tableOfContentsPage.appendChild(createElement(div));
 }
