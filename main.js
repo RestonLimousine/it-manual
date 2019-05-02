@@ -1,3 +1,4 @@
+document.head.innerHTML += '<meta name="viewport" content="width=device-width, initial-scale=1">';
 var doc = [
   ["section", {title: "RLS Employee IT Manual"},
     ["p",
@@ -42,7 +43,6 @@ var doc = [
         "the first time, you may need to enter your network credentials again, but " +
        "you can choose to save them so you don't have to enter them in the future."]]]
 ];
-document.head.innerHTML += '<meta name="viewport" content="width=device-width, initial-scale=1">';
 function appendContents (parent, contents) {
   for (var i = 0; i < contents.length; i++) {
     var item = contents[i];
@@ -95,43 +95,9 @@ function createElement(tag, contents) {
   appendContents(el, contents);
   return el;
 }
-function parseText (text, accum) {
-  switch (text[0]) {
-    case undefined:
-      return [accum];
-    case "[":
-      text = text.slice(1);
-      var textSplit = text.match(/(\S+)\s([\s\S]+)/),
-          tag = textSplit[1],
-          contents = textSplit[2],
-          parsed = parseText(contents, []),
-          newEl = createElement(tag, parsed);
-      accum = accum.concat([newEl]);
-      return parseText(parsed[1], accum);
-    case "}":
-    case "]":
-      return [accum, text.slice(1)];
-    case "{":
-      var parsed = parseText(text.slice(1), []),
-          next = parseText(parsed[1], accum);
-      next.attrs = parsed[0][0].split(/:\s+/);
-      return next;
-    case "\n":
-      text = " " + text.slice(1);
-      return parseText(text, accum);
-    default:
-      var parsed = parseText(text.slice(1), []),
-          newAccum = parsed[0];
-      if (typeof newAccum[0] === "string") {
-        newAccum[0] = text[0] + newAccum[0];
-      } else {
-        newAccum.unshift(text[0]);
-      }
-      accum = accum.concat(newAccum);
-      return [accum, parsed[1]];
-  }
-}
-var content = document.getElementById("content");
+
+
+
 document.body.innerHTML = "";
 var page = document.createElement("div");
 page.className = "page";
@@ -145,13 +111,13 @@ pageNo.appendChild(pageLink);
 page.appendChild(pageNo);
 var firstPage = page.cloneNode(true);
 document.body.appendChild(firstPage);
-var contents = parseText(content.innerText, [])[0];
-appendContents(firstPage, contents);
+var sections = buildDoc(content.innerText, [])[0];
+appendContents(firstPage, sections);
 var height = 0,
     pageNo = 1,
     pageHeight = 9 * 96,
-    currPage = firstPage,
-    sections = document.getElementsByClassName("section");
+    currPage = firstPage;
+sections = document.getElementsByClassName("section");
 sections = [].slice.call(sections);
 for (var i = 0; i < sections.length; i++) {
   var section = sections[i],
