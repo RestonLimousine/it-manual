@@ -1,4 +1,5 @@
 document.head.innerHTML += '<meta name="viewport" content="width=device-width, initial-scale=1">';
+
 var doc = [
   ["section", {title: "RLS Employee IT Manual"},
     ["p",
@@ -131,7 +132,8 @@ var height = 0,
 for (var i = 0; i < sections.length; i++) {
   var section = sections[i],
       header = section.getElementsByTagName("h1")[0],
-      pageRemaining = pageHeight - height;
+      pageRemaining = pageHeight - height,
+      startPage = pageNo;
   
   currPage.appendChild(section);
   
@@ -166,10 +168,11 @@ for (var i = 0; i < sections.length; i++) {
     currPage = newPage;
     document.body.appendChild(currPage);
   } else {
+    startPage = pageNo;
     height += elHeight;
   }
   
-  tableOfContents.push([header.innerText, pageNo]);
+  tableOfContents.push([header.innerText, startPage]);
   
   currPage.appendChild(section);
 }
