@@ -83,7 +83,9 @@ function createElement(el) {
       contents.unshift(h1);
     break;
   }
-  if (tag !== "span") {
+  if (tag === "span") {
+    el.innerText = contents[0];
+  } else {
     contents = buildDoc(contents);
     for (var i = 0; i < contents.length; i++) {
       el.appendChild(contents[i]);
@@ -121,19 +123,17 @@ var page = createElement([
 var firstPage = page.cloneNode(true);
 document.body.appendChild(firstPage);
 var sections = buildDoc(doc);
-for (var i = 0; i < sections.length; i++) {
-  firstPage.appendChild(sections[i]);
-}
 var height = 0,
     pageNo = 1,
     pageHeight = 9 * 96,
     currPage = firstPage;
-sections = document.getElementsByClassName("section");
-sections = [].slice.call(sections);
+// sections = document.getElementsByClassName("section");
+// sections = [].slice.call(sections);
 for (var i = 0; i < sections.length; i++) {
   var section = sections[i],
-      pageRemaining = pageHeight - height,
-      elHeight = section.clientHeight;
+      pageRemaining = pageHeight - height;
+  currPage.appendChild(section);
+  var elHeight = section.clientHeight;
   if (elHeight > pageRemaining) {
     height = 0;
     pageNo++;
