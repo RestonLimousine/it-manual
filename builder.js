@@ -200,7 +200,7 @@ function buildManual (fileName, text) {
     
     if (sectionHeight - 16 > pageRemaining) {
       
-      // height = 0;
+      height = 0;
       pageNo++;
     
       var beforeBreak = section.cloneNode(true),
@@ -224,7 +224,6 @@ function buildManual (fileName, text) {
           }
         }
         var cutOffDiff = sectionHeight - cutOff;
-        height = -cutOff;
         // beforeBreak.style.height = cutOff;
         currPage.appendChild(beforeBreak);
         section.style.height = cutOffDiff;
