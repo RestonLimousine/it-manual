@@ -4,6 +4,11 @@
   <script src="builder.js"></script>
 </head>
 <body>
+  <ul>
+    <li>
+      <a href="?manual=RLS Employee IT Manual">RLS Employee IT Manual</a>
+    </li>
+  </ul>
   <script>
     var query = {},
         search = location.search.slice(1).split(/&/);
@@ -11,7 +16,9 @@
       var split = search[i].split(/=/);
       query[split[0]] = split[1];
     }
-    var uri = "https://restonlimousine.github.io/manual-builder/" + query.manual;
-    fetchAndBuildManual(uri);
+    if (query.manual) {
+      var uri = "https://restonlimousine.github.io/manual-builder/" + query.manual;
+      fetchAndBuildManual(uri);
+    }
   </script>
 </body>
