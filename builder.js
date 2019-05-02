@@ -225,7 +225,7 @@ function buildManual (fileName, text) {
         }
         var cutOffDiff = sectionHeight - cutOff;
         height = -cutOff;
-        beforeBreak.style.height = cutOff;
+        // beforeBreak.style.height = cutOff;
         currPage.appendChild(beforeBreak);
         section.style.height = cutOffDiff;
         section.style.display = "flex";
