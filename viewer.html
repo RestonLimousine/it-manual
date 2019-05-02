@@ -5,6 +5,14 @@
 </head>
 <body>
   <script>
-    fetchAndBuildManual("https://restonlimousine.github.io/manual-builder/RLS Employee Manual For IT Systems");
+    var query = {},
+        search = location.search.slice(1).split(/&/);
+    for (var i = 0; i < search.length; i++) {
+      var split = search[i].split(/=/);
+      query[split[0]] = split[1];
+    }
+    var manual = encodeURI(query.manual),
+        uri = "https://restonlimousine.github.io/manual-builder/" + manual;
+    fetchAndBuildManual(uri);
   </script>
 </body>
