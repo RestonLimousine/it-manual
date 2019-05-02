@@ -3,7 +3,9 @@ var doc = [
     "section", {title: "RLS Employee IT Manual"},
     [
       "p", {},
-      "Welcome to Reston Limousine! This guide is provided by the IT Department to help new employees navigate the various IT systems we use, and also to provide a reference for employees to use throughout their time at Reston Limousine."
+      "Welcome to Reston Limousine! This guide is provided by the IT Department " +
+      "to help new employees navigate the various IT systems we use, and also to " +
+      "provide a reference for employees to use throughout their time at Reston Limousine."
     ],
     [
       "p", {},
