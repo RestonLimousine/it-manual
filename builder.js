@@ -205,15 +205,15 @@ function buildManual (fileName, text) {
       var beforeBreak = section.cloneNode(true),
           newPage = page.cloneNode(true),
           pageLink = newPage.querySelector(".page-number a"),
-          headerHeight = header.offsetHeight;
+          headerHeight = header.offsetHeight + 16;
     
       pageLink.innerText = pageNo;
       pageLink.href = "#page-" + pageNo;
       pageLink.id = "page-" + pageNo;
     
       if (pageRemaining >= headerHeight + 32) {
-        var cutOff = headerHeight + 16;
-        for (var j = 0; j < section.childNodes.length; j++) {
+        var cutOff = headerHeight;
+        for (var j = 1; j < section.childNodes.length; j++) {
           var node = section.childNodes[j];
           cutOff += node.offsetHeight + 16;
           var diff = pageRemaining - cutOff;
@@ -233,7 +233,6 @@ function buildManual (fileName, text) {
       currPage = newPage;
       document.body.appendChild(currPage);
     } else {
-      startPage = pageNo;
       height += elHeight;
     }
   
