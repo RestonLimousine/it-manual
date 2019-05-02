@@ -100,7 +100,7 @@ function parseText (text) {
         beforeSpecial = text.slice(0, specialStartIdx),
         specialEnds = {
           "*": "*",
-          "/", "/",
+          "/": "/",
           "[link:": "]",
           "[email:": "]"
         },
