@@ -47,6 +47,7 @@ function createElement (el) {
   if (tag === "span") {
     el.innerText = contents[0];
   } else {
+    console.log(contents);
     contents = buildDoc(contents);
     for (var i = 0; i < contents.length; i++) {
       el.appendChild(contents[i]);
@@ -133,7 +134,6 @@ function parseItem (item) {
     default:
       el = ["p"].concat(parseText(item));
   }
-  console.log(el);
   return el;
 }
 
