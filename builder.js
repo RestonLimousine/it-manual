@@ -135,7 +135,8 @@ function parseItem (item) {
             lastItem = [];
         for (var j = 0; j < content.length; j++) {
           var thisItem = parseItem(content[j]);
-          if (thisItem[0] === lastItem[0]) {
+          if ((thisItem[0] === "ul" || thisItem[0] === "ol") &&
+              thisItem[0] === lastItem[0]) {
             lastItem.push(thisItem[1]);
           } else if (thisItem[0] === "p") {
             listItem = listItem.concat(thisItem.slice(1));
