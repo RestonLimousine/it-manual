@@ -217,7 +217,7 @@ function buildManual (fileName, text) {
           cutOff += node.offsetHeight + 16;
           var diff = pageRemaining - cutOff;
           if (diff < 0) {
-            cutOff -= Math.ceil(Math.abs(diff) / 16) * 16;
+            cutOff -= Math.ceil(Math.abs(diff) / 32) * 32;
             break;
           }
         }
