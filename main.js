@@ -7,7 +7,7 @@ var doc = [
       "provide a reference for employees to use throughout their time at Reston Limousine."],
     ["p",
       "If you are reading a printed or PDF version of this manual, it might be out of " +
-      "date. You can always find the current version of this manual at",
+      "date. You can always find the current version of this manual at ",
       ["linkto", "https://restonlimo.com/internal/employee-it-manual"]]
   ],
   ["section", {title: "IT Department Contact Info"},
@@ -132,7 +132,7 @@ for (var i = 0; i < sections.length; i++) {
   
   currPage.appendChild(section);
   
-  var elHeight = section.clientHeight;
+  var elHeight = section.getBoundingClientRect().height;
   
   if (elHeight > pageRemaining) {
     height = 0;
@@ -142,9 +142,7 @@ for (var i = 0; i < sections.length; i++) {
         newPage = page.cloneNode(true),
         pageLink = newPage.querySelector(".page-number a"),
         header = section.getElementsByTagName("h1")[0],
-        headerHeight = header.clientHeight;
-    
-    console.log(headerHeight);
+        headerHeight = header.getBoundingClientRect().height + 32;
     
     pageLink.innerText = pageNo;
     pageLink.href = "#page-" + pageNo;
@@ -155,7 +153,7 @@ for (var i = 0; i < sections.length; i++) {
       // for (var j = 0; j < children.length; j++) {
       //   
       // }
-      var cutOff = Math.floor((pageRemaining - 49) / 32) * 32 + 49;
+      var cutOff = Math.floor((pageRemaining - headerHeight) / 32) * 32 + headerHeight;
       beforeBreak.style.height = cutOff;
       currPage.appendChild(beforeBreak);
       section.style.height = elHeight - cutOff;
