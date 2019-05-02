@@ -45,6 +45,8 @@ var doc = [
        "you can choose to save them so you don't have to enter them in the future."]]]
 ];
 
+doc.title = "RLS Employee IT Manual";
+
 function createElement(el) {
   if (el.constructor !== Array) el = ["span", el];
   
@@ -179,6 +181,7 @@ for (var i = 0; i < sections.length; i++) {
 
 var tableOfContentsPage = createElement([
   "div", {class: "page"},
+  ["h1", {class: "main-title"}, doc.title],
   ["h1", {class: "section-header"}, "Table Of Contents"]
 ]);
 
