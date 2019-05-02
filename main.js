@@ -153,7 +153,7 @@ for (var i = 0; i < sections.length; i++) {
       // for (var j = 0; j < children.length; j++) {
       //   
       // }
-      var cutOff = Math.floor((pageRemaining - headerHeight - 16) / 32) * 32 + headerHeight + 8;
+      var cutOff = Math.floor((pageRemaining - headerHeight - 16) / 32) * 32 + headerHeight + 16;
       beforeBreak.style.height = cutOff;
       currPage.appendChild(beforeBreak);
       section.style.height = elHeight - cutOff - 8;
