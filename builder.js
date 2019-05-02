@@ -237,7 +237,8 @@ function buildManual (fileName, text) {
     ["h1", {class: "main-title"}, fileName],
     ["p", "If you are reading a PDF or printed version of this manual, " +
           "it may be out of date. The latest version can be found online " +
-          " at " + location.href],
+          " at ",
+      ["a", {href: location.href, target: "__blank"}, location.href]],
     ["h1", {class: "section-header"}, "Table Of Contents"]
   ]);
 
