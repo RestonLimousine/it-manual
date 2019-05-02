@@ -18,6 +18,7 @@ body {
   line-height: 2em;
   margin-bottom: 48px;
   position: relative;
+  overflow-y: hidden;
 }
 
 .page-number {
