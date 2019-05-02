@@ -125,10 +125,12 @@ var sections = buildDoc(doc);
 var height = 0,
     pageNo = 1,
     pageHeight = 9 * 96,
-    currPage = firstPage;
+    currPage = firstPage,
+    tableOfContents = [];
 
 for (var i = 0; i < sections.length; i++) {
   var section = sections[i],
+      header = section.getElementsByTagName("h1")[0],
       pageRemaining = pageHeight - height;
   
   currPage.appendChild(section);
@@ -142,7 +144,6 @@ for (var i = 0; i < sections.length; i++) {
     var beforeBreak = section.cloneNode(true),
         newPage = page.cloneNode(true),
         pageLink = newPage.querySelector(".page-number a"),
-        header = section.getElementsByTagName("h1")[0],
         headerHeight = header.getBoundingClientRect().height;
     
     pageLink.innerText = pageNo;
@@ -167,5 +168,8 @@ for (var i = 0; i < sections.length; i++) {
   } else {
     height += elHeight;
   }
+  
+  tableOfContents.push([head.innerText, pageNo]);
+  
   currPage.appendChild(section);
 }
