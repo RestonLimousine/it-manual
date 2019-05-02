@@ -187,7 +187,7 @@ function buildManual (fileName, text) {
       tableOfContents = [];
 
   for (var i = 0; i < sections.length; i++) {
-    console.log(i);
+    
     var section = sections[i],
         header = section.getElementsByTagName("h1")[0],
         pageRemaining = pageHeight - height,
@@ -200,7 +200,7 @@ function buildManual (fileName, text) {
     
     if (sectionHeight - 16 > pageRemaining) {
       
-      height = 0;
+      // height = 0;
       pageNo++;
     
       var beforeBreak = section.cloneNode(true),
