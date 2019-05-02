@@ -57,6 +57,13 @@ body {
   margin-top: 0;
 }
 
+.section > p,
+.section > ul,
+.section > ol {
+  margin: none;
+  margin-bottom: 1em;
+}
+
 @media print {
   .page {
     margin-bottom: 0;
