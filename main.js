@@ -83,9 +83,11 @@ function createElement(el) {
       contents.unshift(h1);
     break;
   }
-  contents = buildDoc(contents);
-  for (var i = 0; i < contents.length; i++) {
-    el.appendChild(contents[i]);
+  if (tag !== "span") {
+    contents = buildDoc(contents);
+    for (var i = 0; i < contents.length; i++) {
+      el.appendChild(contents[i]);
+    }
   }
   return el;
 }
