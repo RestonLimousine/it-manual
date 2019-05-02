@@ -125,7 +125,6 @@ function parseItem (item) {
       var splitRe = new RegExp(item[0] + "+ ");
       splitRe = new RegExp("\\n" + item.match(splitRe)[0]);
       listItems = ("\n" + item).split(splitRe);
-      x=console.log(splitRe, item, listItems),
       el = [tag];
       for (var i = 1; i < listItems.length; i++) {
         var listItem = ["li"],
