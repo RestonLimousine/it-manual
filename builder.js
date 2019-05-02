@@ -196,7 +196,6 @@ function buildManual (fileName, text) {
     currPage.appendChild(section);
   
     if (elHeight - 16 > pageRemaining) {
-      console.log(elHeight, pageRemaining);
       
       height = 0;
       pageNo++;
@@ -241,7 +240,7 @@ function buildManual (fileName, text) {
     currPage.appendChild(section);
   }
 
-  var pageloc = location.origin + location.pathname,
+  var pageloc = location.origin + location.pathname + location.search,
       tableOfContentsPage = createElement([
         "div", {class: "page"},
         ["h1", {class: "main-title"}, fileName],
