@@ -210,11 +210,17 @@ function buildManual (fileName, text) {
       pageLink.id = "page-" + pageNo;
     
       if (pageRemaining >= headerHeight + 32) {
-        // var children = [].slice.call(section.childNodes);
-        // for (var j = 0; j < children.length; j++) {
-        //   
-        // }
-        var cutOff = Math.floor((pageRemaining - headerHeight - 16) / 32) * 32 + headerHeight + 16;
+        var cutOff = headerHeight;
+        for (var j = 0; j < section.childnodes.length; j++) {
+          var node = section.childNodes[j];
+          cutOff += node.offsetHeight + 16,
+          var diff = pageRemaining - cutOff;
+          if (diff < 0) {
+            cutOff -= Math.ceil(Math.abs(diff) / 16);
+            break;
+          }
+        }
+        // var cutOff = Math.floor((pageRemaining - headerHeight - 16) / 32) * 32 + headerHeight + 16;
         beforeBreak.style.height = cutOff;
         currPage.appendChild(beforeBreak);
         section.style.height = elHeight - cutOff;
