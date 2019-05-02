@@ -224,7 +224,7 @@ function buildManual (fileName, text) {
           }
         }
         var cutOffDiff = sectionHeight - cutOff;
-        // beforeBreak.style.height = cutOff;
+        beforeBreak.style.height = beforeBreak.style.height || cutOff;
         currPage.appendChild(beforeBreak);
         section.style.height = cutOffDiff;
         section.style.display = "flex";
