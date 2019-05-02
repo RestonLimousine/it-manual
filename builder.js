@@ -128,7 +128,17 @@ function parseItem (item) {
       x=console.log(splitRe, item, listItems),
       el = [tag];
       for (var i = 1; i < listItems.length; i++) {
-        el.push(["li"].concat(parseText(listItems[i])));
+        var listItem = ["li"],
+            content = listItems[i].split(/\n/);
+        for (var i = 0; i < content.length; i++) {
+          var thisContent = parseItem(content[i]);
+          if (thisContent[0] === "p") {
+            listItem = listItem.concat(thisContent.slice(1));
+          } else {
+            listItem.push(thisContent);
+          }
+        }
+        el.push(thisItem);
       }
     break;
     default:
