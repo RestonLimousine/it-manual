@@ -222,9 +222,11 @@ function buildManual (fileName, text) {
             break;
           }
         }
+        var cutOffDiff = sectionHeight - cutOff;
+        height = cutOffDiff + 16;
         beforeBreak.style.height = cutOff;
         currPage.appendChild(beforeBreak);
-        section.style.height = sectionHeight - cutOff;
+        section.style.height = cutOffDiff;
         section.style.display = "flex";
         section.style.flexDirection = "column";
         section.style.justifyContent = "flex-end";
