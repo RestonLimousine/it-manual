@@ -148,7 +148,7 @@ function parseItem (item) {
 }
 
 function parseDoc (text) {
-  var sections = text.split(/\n{3,}/),
+  var sections = text.split(/\n{4,}/),
       out = [];
   for (var i = 0; i < sections.length; i++) {
     var sectionSplit = sections[i].match(/(.+)\n\n([\s\S]+)/),
@@ -235,6 +235,9 @@ function buildManual (fileName, text) {
   var tableOfContentsPage = createElement([
     "div", {class: "page"},
     ["h1", {class: "main-title"}, fileName],
+    ["p", "If you are reading a PDF or printed version of this manual, " +
+          "it may be out of date. The latest version can be found online " +
+          " at " + location.href],
     ["h1", {class: "section-header"}, "Table Of Contents"]
   ]);
 
