@@ -182,7 +182,7 @@ var tableOfContentsPage = page.cloneNode(true);
 document.body.insertBefore(tableOfContentsPage, firstPage);
 
 for (i = 0; i < tableOfContents.length; i++) {
-  var cont = tabletOfContents[i],
+  var cont = tableOfContents[i],
       sectionName = ["a", {href: "#" + cont[1]}, cont[0]],
       sectionPage = ["a", {href: "#page-" + cont[2]}, cont[2]],
       div = ["div", sectionName, " ", sectionPage];
