@@ -211,7 +211,7 @@ function buildManual (fileName, text) {
     
       if (pageRemaining >= headerHeight + 32) {
         var cutOff = headerHeight;
-        for (var j = 0; j < section.childnodes.length; j++) {
+        for (var j = 0; j < section.childNodes.length; j++) {
           var node = section.childNodes[j];
           cutOff += node.offsetHeight + 16;
           var diff = pageRemaining - cutOff;
