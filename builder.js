@@ -137,9 +137,11 @@ function parseItem (item) {
           var thisItem = parseItem(content[j]);
           if (thisItem[0] === lastItem[0]) {
             lastItem.push(thisItem[1]);
+          } else if (thisItem[0] === "p") {
+            listItem = listItem.concat(thisItem.slice(1));
           } else {
             lastItem = thisItem;
-            listItem.push(thisItem[1]);
+            listItem.push(thisItem);
           }
         }
         el.push(listItem);
