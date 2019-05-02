@@ -163,7 +163,7 @@ function parseDoc (text) {
   return out;
 }
 
-function buildManual (text) {
+function buildManual (fileName, text) {
 
   document.body.innerHTML = "";
 
@@ -234,7 +234,7 @@ function buildManual (text) {
 
   var tableOfContentsPage = createElement([
     "div", {class: "page"},
-    ["h1", {class: "main-title"}, "RLS IT Employee Manual"],
+    ["h1", {class: "main-title"}, fileName],
     ["h1", {class: "section-header"}, "Table Of Contents"]
   ]);
 
@@ -255,4 +255,14 @@ function buildManual (text) {
     tableOfContentsPage.appendChild(div);
     heightUsed += div.getBoundingClientRect().height;
   }
+}
+
+function fetchAndBuildManual (url) {
+  var filename = url.split(/\//).slice(-1)[0],
+      req = new XMLHttpRequest();
+  req.onload = function () {
+    buildManual(fileName, this.responseText);
+  };
+  req.open("GET", url);
+  req.send();
 }
