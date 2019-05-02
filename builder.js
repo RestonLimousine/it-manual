@@ -194,7 +194,7 @@ function buildManual (fileName, text) {
   
     currPage.appendChild(section);
   
-    var elHeight = section.getBoundingClientRect().height;
+    var elHeight = section.offsetHeight;
   
     if (elHeight > pageRemaining) {
       height = 0;
@@ -203,7 +203,7 @@ function buildManual (fileName, text) {
       var beforeBreak = section.cloneNode(true),
           newPage = page.cloneNode(true),
           pageLink = newPage.querySelector(".page-number a"),
-          headerHeight = header.getBoundingClientRect().height;
+          headerHeight = header.offsetHeight;
     
       pageLink.innerText = pageNo;
       pageLink.href = "#page-" + pageNo;
@@ -238,7 +238,8 @@ function buildManual (fileName, text) {
       tableOfContentsPage = createElement([
         "div", {class: "page"},
         ["h1", {class: "main-title"}, fileName],
-        ["p", "If you are reading a PDF or printed version of this manual, " +
+        ["i", ["b", "Note: "],
+              "If you are reading a PDF or printed version of this manual, " +
               "it may be out of date. The latest version can be found online at ",
           ["a", {href: pageloc, target: "__blank"}, pageloc]],
         ["h1", {class: "section-header"}, "Table Of Contents"]
