@@ -143,7 +143,7 @@ for (var i = 0; i < sections.length; i++) {
         pageLink = newPage.querySelector(".page-number a"),
         header = section.getElementsByTagName("h1")[0],
         headerHeight = header.getBoundingClientRect().height;
-    
+    console.log(headerHeight);
     pageLink.innerText = pageNo;
     pageLink.href = "#page-" + pageNo;
     pageLink.id = "page-" + pageNo;
