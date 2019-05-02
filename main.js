@@ -189,8 +189,8 @@ document.body.insertBefore(tableOfContentsPage, firstPage);
 
 var heightUsed = 0;
 
-for (i = 0; i < tableOfContents.children.length; i++) {
-  heightUsed += tableOfContents.children[i].getBoundingClientRect().height;
+for (i = 0; i < tableOfContentsPage.childNodes.length; i++) {
+  heightUsed += tableOfContentsPage.childNodes[i].getBoundingClientRect().height;
 }
 
 for (i = 0; i < tableOfContents.length; i++) {
