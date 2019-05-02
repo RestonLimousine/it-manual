@@ -139,7 +139,7 @@ function parseItem (item) {
             lastItem.push(thisItem[1]);
           } else {
             lastItem = thisItem;
-            listItem.push(thisItem);
+            listItem.push(thisItem[1]);
           }
         }
         el.push(listItem);
