@@ -11,8 +11,7 @@
       var split = search[i].split(/=/);
       query[split[0]] = split[1];
     }
-    var manual = encodeURI(query.manual),
-        uri = "https://restonlimousine.github.io/manual-builder/" + manual;
+    var uri = "https://restonlimousine.github.io/manual-builder/" + query.manual;
     console.log(uri);
     fetchAndBuildManual(uri);
   </script>
