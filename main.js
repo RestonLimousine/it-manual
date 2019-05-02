@@ -142,13 +142,13 @@ for (var i = 0; i < sections.length; i++) {
         newPage = page.cloneNode(true),
         pageLink = newPage.querySelector(".page-number a"),
         header = section.getElementsByTagName("h1")[0],
-        headerHeight = header.getBoundingClientRect().height + 32;
+        headerHeight = header.getBoundingClientRect().height;
     
     pageLink.innerText = pageNo;
     pageLink.href = "#page-" + pageNo;
     pageLink.id = "page-" + pageNo;
     
-    if (pageRemaining >= headerHeight) {
+    if (pageRemaining >= headerHeight + 32) {
       // var children = [].slice.call(section.childNodes);
       // for (var j = 0; j < children.length; j++) {
       //   
