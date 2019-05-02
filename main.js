@@ -70,6 +70,7 @@ function createElement(el) {
     break;
     case "linkto":
       el.href = el.innerText = contents[0];
+      el.target = "__blank";
       contents = [];
     break;
     case "section":
