@@ -65,6 +65,7 @@ function buildDoc (els) {
 }
 
 function parseNotation (start, end, text) {
+  console.log(start, end, text);
   text = text.slice(start.length, text.length - end.length);
   var tag,
       attrs = {},
