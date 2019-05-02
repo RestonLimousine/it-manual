@@ -223,7 +223,7 @@ function buildManual (fileName, text) {
         }
         beforeBreak.style.height = cutOff;
         currPage.appendChild(beforeBreak);
-        section.style.height = elHeight - cutOff;
+        section.style.height = elHeight - cutOff + 16;
         section.style.display = "flex";
         section.style.flexDirection = "column";
         section.style.justifyContent = "flex-end";
