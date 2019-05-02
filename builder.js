@@ -143,6 +143,7 @@ function parseItem (item) {
           }
         }
         el.push(listItem);
+        console.log(el);
       }
     break;
     default:
