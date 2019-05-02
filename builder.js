@@ -234,15 +234,15 @@ function buildManual (fileName, text) {
     currPage.appendChild(section);
   }
 
-  var tableOfContentsPage = createElement([
-    "div", {class: "page"},
-    ["h1", {class: "main-title"}, fileName],
-    ["p", "If you are reading a PDF or printed version of this manual, " +
-          "it may be out of date. The latest version can be found online " +
-          " at ",
-      ["a", {href: location.href, target: "__blank"}, location.href]],
-    ["h1", {class: "section-header"}, "Table Of Contents"]
-  ]);
+  var pageloc = location.origin + location.pathname,
+      tableOfContentsPage = createElement([
+        "div", {class: "page"},
+        ["h1", {class: "main-title"}, fileName],
+        ["p", "If you are reading a PDF or printed version of this manual, " +
+              "it may be out of date. The latest version can be found online at ",
+          ["a", {href: pageloc, target: "__blank"}, pageloc]],
+        ["h1", {class: "section-header"}, "Table Of Contents"]
+      ]);
 
   document.body.insertBefore(tableOfContentsPage, firstPage);
 
