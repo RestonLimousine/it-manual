@@ -1,10 +1,11 @@
 <head>
+  <script src="builder.js"></script>
 </head>
 <body>
   <script>
     var req = new XMLHttpRequest();
     req.onload = function () {
-      document.body.innerText = this.responseText;
+      ManualBuilder.build(this.responseText);
     };
     req.open("GET", "https://restonlimousine.github.io/manual-builder/it-employee-manual.txt");
     req.send();
