@@ -1,1 +1,26 @@
-This is a test
+# Introduction
+
+Welcome to Reston Limousine! This guide is provided by the IT Department to help new employees navigate the various IT systems we use, and also to provide a reference for employees to use throughout their time at Reston Limousine.
+
+If you are reading a printed or PDF version of this manual, it might be out of date. You can always find the current version of this manual at [link: https://restonlimo.com/internal/employee-it-manual].
+
+# IT Department Contact Info
+
+If you have any questions about the content of this manual or anything else related to IT systems, please reach out to the IT department:
+
+- *Department Email:* [email: it@restonlimo.com]
+- *Manager:* Bonnie Custer
+-- *Email:* [email: bcuster@restonlimo.com]
+-- *Extension:* 538
+
+# First Steps
+
+If you have just been hired, here is what to expect in your first few days:
+
+1. *PC & Workstation:* Your manager will show you to the area where you will work.
+1. *Network Credentials:* IT will create a network account for you, and your manager will provide you the credentials you will use to log into your PC the first time.
+1. *Phone Extension:* If your workstation includes a desk phone, IT will register your extension.
+
+Here is what you need to do after the above:
+
+1. *Log Into PC:* Use your new network credentials to log into your PC. Open up Outlook -- the first time, you may need to enter your network credentials again, but you can choose to save them so you don't have to enter them in the future.
