@@ -99,12 +99,8 @@ function buildDoc (els) {
 }
 
 document.body.innerHTML = "";
-var page = document.createElement("div");
 /*
-var page = createElement(["div",
-  {className: "page"}
-]);
-*/
+var page = document.createElement("div");
 page.className = "page";
 var pageNo = document.createElement("div");
 pageNo.className = "page-number";
@@ -114,6 +110,12 @@ pageLink.id = "page-1";
 pageLink.innerText = "1";
 pageNo.appendChild(pageLink);
 page.appendChild(pageNo);
+*/
+var page = createElement([
+  "div", {"class": "page"},
+  ["div", {"class": "page-number"},
+    ["a", {href: "#page-1", id: "page-1"}, "1"]]
+]);
 var firstPage = page.cloneNode(true);
 document.body.appendChild(firstPage);
 var sections = buildDoc(doc);
