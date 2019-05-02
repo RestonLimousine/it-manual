@@ -195,9 +195,9 @@ function buildManual (fileName, text) {
   
     currPage.appendChild(section);
   
-    var elHeight = section.offsetHeight + 16;
+    var sectionHeight = section.offsetHeight;
     
-    if (elHeight - 16 > pageRemaining) {
+    if (sectionHeight - 16 > pageRemaining) {
       
       height = 0;
       pageNo++;
@@ -210,8 +210,6 @@ function buildManual (fileName, text) {
       pageLink.innerText = pageNo;
       pageLink.href = "#page-" + pageNo;
       pageLink.id = "page-" + pageNo;
-    
-      console.log(pageRemaining, headerHeight);
       
       if (pageRemaining >= headerHeight + 32) {
         var cutOff = headerHeight;
@@ -226,7 +224,7 @@ function buildManual (fileName, text) {
         }
         beforeBreak.style.height = cutOff;
         currPage.appendChild(beforeBreak);
-        section.style.height = elHeight - cutOff;
+        section.style.height = sectionHeight - cutOff;
         section.style.display = "flex";
         section.style.flexDirection = "column";
         section.style.justifyContent = "flex-end";
@@ -235,7 +233,7 @@ function buildManual (fileName, text) {
       currPage = newPage;
       document.body.appendChild(currPage);
     } else {
-      height += elHeight;
+      height += sectionHeight;
     }
   
     tableOfContents.push([header.innerText, sectionId, startPage]);
