@@ -156,7 +156,7 @@ for (var i = 0; i < sections.length; i++) {
       var cutOff = Math.floor((pageRemaining - headerHeight - 16) / 32) * 32 + headerHeight + 16;
       beforeBreak.style.height = cutOff;
       currPage.appendChild(beforeBreak);
-      section.style.height = elHeight - cutOff - 8;
+      section.style.height = elHeight - cutOff;
       section.style.display = "flex";
       section.style.flexDirection = "column";
       section.style.justifyContent = "flex-end";
