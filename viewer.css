@@ -60,7 +60,7 @@ body {
 .section > p,
 .section > ul,
 .section > ol {
-  margin: none;
+  margin-top: none;
   margin-bottom: 1em;
 }
 
