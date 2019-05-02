@@ -213,7 +213,7 @@ function buildManual (fileName, text) {
         var cutOff = headerHeight;
         for (var j = 0; j < section.childnodes.length; j++) {
           var node = section.childNodes[j];
-          cutOff += node.offsetHeight + 16,
+          cutOff += node.offsetHeight + 16;
           var diff = pageRemaining - cutOff;
           if (diff < 0) {
             cutOff -= Math.ceil(Math.abs(diff) / 16);
