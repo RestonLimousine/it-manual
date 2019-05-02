@@ -18,6 +18,10 @@ body {
   line-height: 2em;
   margin-bottom: 48px;
   position: relative;
+}
+
+.content {
+  max-height: 864px;
   overflow-y: hidden;
 }
 
