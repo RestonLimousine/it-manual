@@ -43,32 +43,24 @@ var doc = [
         "the first time, you may need to enter your network credentials again, but " +
        "you can choose to save them so you don't have to enter them in the future."]]]
 ];
-function appendContents (parent, contents) {
-  for (var i = 0; i < contents.length; i++) {
-    var item = contents[i];
-    if (typeof item === "string") {
-      if (item.trim().length > 0) {
-        var span = document.createElement("span");
-        span.innerText = item;
-        item = span;
-      } else {
-        item = null;
-      }
-    }
-    if (item) parent.appendChild(item);
+
+function createElement(el) {
+  if (typeof el === "string") el = ["span" el];
+  var tag = el[0],
+      contents = el.slice(1),
+      realTag = tag,
+      attrs = {};
+  if (typeof contents[0] === "object") {
+    attrs = contents[0];
+    contents = contents.slice(1);
   }
-}
-function createElement(tag, contents) {
-  var realTag = tag,
-      attrs = contents.attrs || [];
-  contents = contents[0];
   switch (tag) {
     case "mailto": case "linkto": realTag = "a"; break;
     case "section": realTag = "div"; break;
   }
-  var el = document.createElement(realTag);
-  for (var i = 0; i < attrs.length; i += 2) {
-    el.setAttribute(attrs[i], attrs[i + 1]);
+  el = document.createElement(realTag);
+  for (var prop in attrs) {
+    el.setAttribute(prop, attrs[prop]);
   }
   switch (tag) {
     case "mailto":
@@ -92,11 +84,20 @@ function createElement(tag, contents) {
       contents.unshift(h1);
     break;
   }
-  appendContents(el, contents);
+  contents = buildDoc(contents);
+  for (var i = 0; i < contents.length; i++) {
+    el.appendChild(contents[i]);
+  }
   return el;
 }
 
-
+function buildDoc (els) {
+  var accum = [];
+  for (var i = 0; i < els.length; i++) {
+    accum = accum.concat([createElement(els[i])]);
+  }
+  return accum;
+}
 
 document.body.innerHTML = "";
 var page = document.createElement("div");
@@ -111,8 +112,10 @@ pageNo.appendChild(pageLink);
 page.appendChild(pageNo);
 var firstPage = page.cloneNode(true);
 document.body.appendChild(firstPage);
-var sections = buildDoc(content.innerText, [])[0];
-appendContents(firstPage, sections);
+var sections = buildDoc(doc);
+for (var i = 0; i < sections.length; i++) {
+  firstPage.appendChild(sections[i]);
+}
 var height = 0,
     pageNo = 1,
     pageHeight = 9 * 96,
