@@ -138,7 +138,7 @@ function parseItem (item) {
             listItem.push(thisContent);
           }
         }
-        el.push(thisItem);
+        el.push(listItem);
       }
     break;
     default:
