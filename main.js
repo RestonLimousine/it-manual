@@ -1,7 +1,7 @@
 document.head.innerHTML += '<meta name="viewport" content="width=device-width, initial-scale=1">';
 
 var doc = [
-  ["section", {title: "RLS Employee IT Manual"},
+  ["section", {title: "Introduction"},
     ["p",
       "Welcome to Reston Limousine! This guide is provided by the IT Department " +
       "to help new employees navigate the various IT systems we use, and also to " +
@@ -177,7 +177,10 @@ for (var i = 0; i < sections.length; i++) {
   currPage.appendChild(section);
 }
 
-var tableOfContentsPage = createElement(["div", {class: "page"}]);
+var tableOfContentsPage = createElement([
+  "div", {class: "page"},
+  ["h1", "Table Of Contents"]
+]);
 
 document.body.insertBefore(tableOfContentsPage, firstPage);
 
