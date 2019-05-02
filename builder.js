@@ -127,7 +127,7 @@ function parseItem (item) {
       listItems = ("\n" + item).split(splitRe);
       x=console.log(splitRe, item, listItems),
       el = [tag];
-      for (var i = 0; i < listItems.length; i++) {
+      for (var i = 1; i < listItems.length; i++) {
         el.push(["li"].concat(parseText(listItems[i])));
       }
     break;
