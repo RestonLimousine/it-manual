@@ -224,7 +224,7 @@ function buildManual (text) {
 
   var tableOfContentsPage = createElement([
     "div", {class: "page"},
-    ["h1", {class: "main-title"}, doc.title],
+    ["h1", {class: "main-title"}, "RLS IT Employee Manual"],
     ["h1", {class: "section-header"}, "Table Of Contents"]
   ]);
 
