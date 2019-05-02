@@ -172,7 +172,8 @@ function buildManual (fileName, text) {
   var page = createElement([
     "div", {"class": "page"},
     ["div", {"class": "page-number"},
-      ["a", {href: "#page-1", id: "page-1"}, "1"]]
+      ["a", {href: "#page-1", id: "page-1"}, "1"]],
+    ["div", {class: "content"}]
   ]);
 
   var firstPage = page.cloneNode(true);
@@ -183,7 +184,7 @@ function buildManual (fileName, text) {
       height = 0,
       pageNo = 1,
       pageHeight = 9 * 96,
-      currPage = firstPage,
+      currPage = firstPage.getElementsByClassName("content")[0],
       tableOfContents = [];
 
   for (var i = 0; i < sections.length; i++) {
@@ -233,7 +234,7 @@ function buildManual (fileName, text) {
         section.id = "";
         sections = sections.slice(0, i + 1).concat([section]).concat(sections.slice(i + 1));
       }
-      currPage = newPage;
+      currPage = newPage.getElementsByClassName("content")[0];
       document.body.appendChild(currPage);
     } else {
       height += sectionHeight;
