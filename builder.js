@@ -47,7 +47,6 @@ function createElement (el) {
   if (tag === "span") {
     el.innerText = contents[0];
   } else {
-    console.log(contents);
     contents = buildDoc(contents);
     for (var i = 0; i < contents.length; i++) {
       el.appendChild(contents[i]);
@@ -123,9 +122,9 @@ function parseItem (item) {
       tag = "ol";
     case "-":
       tag = tag || "ul";
-      var splitRe = new RegExp("\\n" + item[0] + "+ ");
-      splitRe = new RegExp(("\n" + item).match(splitRe)[0]);
-      listItems = item.split(splitRe);
+      var splitRe = new RegExp(item[0] + "+ ");
+      splitRe = new RegExp("\\n" + item.match(splitRe)[0]);
+      listItems = ("\n" + item).split(splitRe);
       el = [tag];
       for (var i = 0; i < listItems.length; i++) {
         el.push(["li"].concat(parseText(listItems[i])));
