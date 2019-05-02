@@ -187,10 +187,19 @@ var tableOfContentsPage = createElement([
 
 document.body.insertBefore(tableOfContentsPage, firstPage);
 
+var heightUsed = 0;
+
+for (i = 0; i < tableOfContents.children.length; i++) {
+  heightUsed += tableOfContents.children[i].getBoundingClientRect().height;
+}
+
 for (i = 0; i < tableOfContents.length; i++) {
   var cont = tableOfContents[i],
       sectionName = ["a", {href: "#" + cont[1]}, cont[0]],
       sectionPage = ["a", {href: "#page-" + cont[2]}, cont[2]],
       div = ["div", {class: "contents-listing"}, sectionName, sectionPage];
-  tableOfContentsPage.appendChild(createElement(div));
+  div = createElement(div);
+  tableOfContentsPage.appendChild(div);
+  heightUsed += div.getBoundingClientRect().height;
+  console.log(heightUsed);
 }
