@@ -231,8 +231,7 @@ function buildManual (fileName, text) {
         section.style.flexDirection = "column";
         section.style.justifyContent = "flex-end";
         section.id = "";
-        sections = sections.slice(0, i).concat([section]).concat(sections.slice(i + 1));
-        i--;
+        sections = sections.slice(0, i + 1).concat([section]).concat(sections.slice(i + 1));
       }
       currPage = newPage;
       document.body.appendChild(currPage);
