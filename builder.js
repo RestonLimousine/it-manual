@@ -195,7 +195,7 @@ function buildManual (fileName, text) {
   
     currPage.appendChild(section);
   
-    var elHeight = section.offsetHeight;
+    var elHeight = section.offsetHeight + 16;
     
     if (elHeight - 16 > pageRemaining) {
       
@@ -224,7 +224,7 @@ function buildManual (fileName, text) {
         }
         beforeBreak.style.height = cutOff;
         currPage.appendChild(beforeBreak);
-        section.style.height = elHeight - cutOff + 16;
+        section.style.height = elHeight - cutOff;
         section.style.display = "flex";
         section.style.flexDirection = "column";
         section.style.justifyContent = "flex-end";
