@@ -83,6 +83,8 @@ function parseNotation (start, text) {
     break;
     case "*":
       tag = "b";
+    case "/":
+      tag = tag || "i";
       content = parseText(text);
     break;
   }
@@ -90,7 +92,7 @@ function parseNotation (start, text) {
 }
 
 function parseText (text) {
-  var specialStart = text.match(/\*|\[link:|\[email:/),
+  var specialStart = text.match(/\*|\/|\[link:|\[email:/),
       out = [text];
   if (specialStart) {
     specialStart = specialStart[0];
@@ -98,6 +100,7 @@ function parseText (text) {
         beforeSpecial = text.slice(0, specialStartIdx),
         specialEnds = {
           "*": "*",
+          "/", "/",
           "[link:": "]",
           "[email:": "]"
         },
