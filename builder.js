@@ -129,8 +129,8 @@ function parseItem (item) {
       for (var i = 1; i < listItems.length; i++) {
         var listItem = ["li"],
             content = listItems[i].split(/\n/);
-        for (var i = 0; i < content.length; i++) {
-          var thisContent = parseItem(content[i]);
+        for (var j = 0; j < content.length; j++) {
+          var thisContent = parseItem(content[j]);
           if (thisContent[0] === "p") {
             listItem = listItem.concat(thisContent.slice(1));
           } else {
