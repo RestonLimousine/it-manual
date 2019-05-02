@@ -1,6 +1,11 @@
 <head>
-
 </head>
 <body>
-  This is a test!
+  <script>
+    var req = new XMLHTTPRequest();
+    req.onload = function () {
+      document.body.innerText = this.responseText;
+    };
+    req.open("GET", "https://restonlimousine.github.io/manual-builder/it-employee-manual.txt");
+  </script>
 </body>
