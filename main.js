@@ -122,8 +122,8 @@ var page = createElement([
 var firstPage = page.cloneNode(true);
 document.body.appendChild(firstPage);
 
-var sections = buildDoc(doc);
-var height = 0,
+var sections = buildDoc(doc),
+    height = 0,
     pageNo = 1,
     pageHeight = 9 * 96,
     currPage = firstPage,
@@ -172,9 +172,19 @@ for (var i = 0; i < sections.length; i++) {
     height += elHeight;
   }
   
-  tableOfContents.push([header.innerText, startPage]);
+  tableOfContents.push([header.innerText, header.id, startPage]);
   
   currPage.appendChild(section);
 }
 
-console.log(tableOfContents);
+var tableOfContentsPage = page.cloneNode(true);
+
+document.body.insertBefore(tableOfContentsPage, firstPage);
+
+for (i = 0; i < tableOfContents.length; i++) {
+  var cont = tabletOfContents[i],
+      sectionName = ["a", {href: "#" + cont[1]}, cont[0]],
+      sectionPage = ["a", {href: "#page-" + cont[2]}, cont[2]],
+      div = ["div", sectionName, " ", sectionPage];
+  tableOfContentsPage.appendChild(createElement(div));
+}
