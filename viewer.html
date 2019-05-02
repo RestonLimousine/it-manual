@@ -5,11 +5,6 @@
 </head>
 <body>
   <script>
-    var req = new XMLHttpRequest();
-    req.onload = function () {
-      buildManual(this.responseText);
-    };
-    req.open("GET", "https://restonlimousine.github.io/manual-builder/it-employee-manual.txt");
-    req.send();
+    buildManual("https://restonlimousine.github.io/manual-builder/IT Employee Manual");
   </script>
 </body>
