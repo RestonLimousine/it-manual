@@ -30,10 +30,18 @@ If you have just been hired, here is what to expect in your first few days:
 # *Network Credentials:* IT will create a network account for you, and your manager will provide you the credentials you will use to log into your PC. These are the same credentials you will use for email and other services.
 # *Phone Extension:* If you were assigned a dedicated workstation with a desk phone, IT will register your extension to you.
 
-Here is what you will do:
+Here is what you will need to do:
 
 # *Log into PC:* Use your new network credentials to log into your PC.
-# *Sign into email:* Once logged into the PC, open up Outlook
-- You may need to click on the search bar next to the start menu that says "Type here to search", then search for Outlook.
+# *Sign into email:* Once logged into the PC, open up Outlook.
+- You may need to click on the search bar that says "Type here to search" next to the start menu, then search for Outlook.
 - After opening Outlook for the first time, it's a good idea to right-click on the icon on your taskbar (bottom of the screen), then choose "pin to taskbar" so that Outlook can always be easily accessed from the taskbar.
 - The first time you open Outlook, it will ask you to enter your network credentials again. Choose to save them so you don't have to enter them again in the future.
+# *Find other applications:* You should also find other applications that you will be using the same way you found Outlook, and pin them to the taskbar. Common applications include:
+## Excel
+## FileMaker Pro
+## Word
+## Powerpoint
+## Calculator
+## Snip & Sketch (for screenshots)
+If you find that you don't use some of these applications very often, you can always unpin them from the taskbar later.
