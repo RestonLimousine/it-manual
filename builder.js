@@ -135,7 +135,7 @@ function parseDoc (text) {
   var sections = text.split(/\n{3,}/),
       out = [];
   for (var i = 0; i < sections.length; i++) {
-    var sectionSplit = section.match(/(.+)\n{2,}([\s\S]+)/),
+    var sectionSplit = sections[i].match(/(.+)\n{2,}([\s\S]+)/),
         header = sectionSplit[1],
         content = sectionSplit[2].split(/\n{2,}/),
         section = ["section", {title: header}];
