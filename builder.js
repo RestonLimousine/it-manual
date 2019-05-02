@@ -215,6 +215,7 @@ function buildManual (fileName, text) {
           var node = section.childNodes[j];
           cutOff += node.offsetHeight + 16;
           var diff = pageRemaining - cutOff;
+          console.log(pageRemaining, cutOff, diff);
           if (diff < 0) {
             cutOff -= Math.ceil(Math.abs(diff) / 16);
             break;
@@ -223,7 +224,6 @@ function buildManual (fileName, text) {
         // var cutOff = Math.floor((pageRemaining - headerHeight - 16) / 32) * 32 + headerHeight + 16;
         beforeBreak.style.height = cutOff;
         currPage.appendChild(beforeBreak);
-        console.log(elHeight, cutOff);
         section.style.height = elHeight - cutOff;
         section.style.display = "flex";
         section.style.flexDirection = "column";
