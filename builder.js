@@ -258,7 +258,7 @@ function buildManual (fileName, text) {
 }
 
 function fetchAndBuildManual (url) {
-  var filename = url.split(/\//).slice(-1)[0],
+  var fileName = url.split(/\//).slice(-1)[0],
       req = new XMLHttpRequest();
   req.onload = function () {
     buildManual(fileName, this.responseText);
