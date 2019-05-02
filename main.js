@@ -46,7 +46,7 @@ var doc = [
 ];
 
 function createElement(el) {
-  if (typeof el === "string") el = ["span", el];
+  if (el.constructor !== Array) el = ["span", el];
   
   var tag = el[0],
       contents = el.slice(1),
@@ -172,7 +172,7 @@ for (var i = 0; i < sections.length; i++) {
     height += elHeight;
   }
   
-  tableOfContents.push([header.innerText, header.id, startPage.toString()]);
+  tableOfContents.push([header.innerText, section.id, startPage]);
   
   currPage.appendChild(section);
 }
