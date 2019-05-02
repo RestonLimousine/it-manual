@@ -229,7 +229,7 @@ function buildManual (fileName, text) {
         if (beforeBreak.style.height) {
           var beforeBreakHeight = beforeBreak.offsetHeight;
           console.log(pageHeight, beforeBreakHeight, cutOff);
-          currPage.style.height = pageHeight - (beforeBreakHeight - cutOff);
+          currPage.style.height = cutOff;
         } else {
           beforeBreak.style.height = cutOff;
         }
