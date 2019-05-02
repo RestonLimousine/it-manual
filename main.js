@@ -179,7 +179,7 @@ for (var i = 0; i < sections.length; i++) {
 
 var tableOfContentsPage = createElement([
   "div", {class: "page"},
-  ["h1", "Table Of Contents"]
+  ["h1", {class: "section-header"}, "Table Of Contents"]
 ]);
 
 document.body.insertBefore(tableOfContentsPage, firstPage);
