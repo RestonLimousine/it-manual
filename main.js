@@ -75,14 +75,11 @@ function createElement(el) {
       contents = [];
     break;
     case "section":
-      var h1 = document.createElement("h1"),
-          title = el.getAttribute("title"),
-          a = document.createElement("a");
-      el.id = title.toLowerCase().replace(/ /g, "-");
+      var title = el.getAttribute("title"),
+          id = title.toLowerCase().replace(/ /g, "-"),
+          h1 = ["h1", ["a", {href: "#" + id}, title]];
+      el.id = id;
       el.className = "section";
-      a.textContent = title;
-      a.href = "#" + el.id;
-      h1.appendChild(a);
       contents.unshift(h1);
     break;
   }
