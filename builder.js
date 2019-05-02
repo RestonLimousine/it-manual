@@ -232,6 +232,7 @@ function buildManual (fileName, text) {
         section.style.justifyContent = "flex-end";
         section.id = "";
         sections = sections.slice(0, i).concat([section]).concat(sections.slice(i + 1));
+        i--;
       }
       currPage = newPage;
       document.body.appendChild(currPage);
