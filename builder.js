@@ -3,7 +3,6 @@ function createElement (el) {
   
   var tag = el[0],
       contents = el.slice(1),
-      realTag = tag,
       attrs = {};
   
   if (contents[0].constructor === Object) {
@@ -11,37 +10,10 @@ function createElement (el) {
     contents = contents.slice(1);
   }
   
-  switch (tag) {
-    case "mailto": case "linkto": realTag = "a"; break;
-    case "section": realTag = "div"; break;
-  }
-  
-  el = document.createElement(realTag);
+  el = document.createElement(tag);
   
   for (var prop in attrs) {
     el.setAttribute(prop, attrs[prop]);
-  }
-  
-  switch (tag) {
-    case "mailto":
-      el.href = "mailto:" + contents[0];
-      el.innerText = contents[0];
-      contents = [];
-    break;
-    case "linkto":
-      el.href = el.innerText = contents[0];
-      el.target = "_blank";
-      contents = [];
-    break;
-    case "section":
-      var title = el.getAttribute("title"),
-          id = title.toLowerCase().replace(/ /g, "-"),
-          a = ["a", {href: "#" + id}, title],
-          h1 = ["h1", {"class": "section-header"}, a];
-      el.id = id;
-      el.className = "section";
-      contents.unshift(h1);
-    break;
   }
   
   if (tag === "span") {
@@ -74,6 +46,10 @@ function parseNotation (start, text) {
     case "[email:":
       hrefPrefix = "mailto:";
       target = "";
+    case "[goto:":
+      target = "";
+      hrefPrefix = "#";
+      // To Do: get section id from name
     case "[link:":
       tag = "a";
       text = text.trim();
@@ -92,7 +68,7 @@ function parseNotation (start, text) {
 }
 
 function parseText (text) {
-  var specialStart = text.match(/\*|\/|\[link:|\[email:/),
+  var specialStart = text.match(/\*|\/|\[\w+:/),
       out = [text];
   if (specialStart) {
     specialStart = specialStart[0];
@@ -102,7 +78,8 @@ function parseText (text) {
           "*": "*",
           "/": "/",
           "[link:": "]",
-          "[email:": "]"
+          "[email:": "]",
+          "[goto:": "]"
         },
         specialEnd = specialEnds[specialStart],
         textChopped = text.slice(specialStartIdx + specialStart.length),
@@ -119,7 +96,25 @@ function parseText (text) {
 }
 
 function parseItem (item) {
-  var tag, splitRe, listItems, el;
+  var el = ["table", {}, ["tbody"]],
+      match = item.match(/^(\s*)(#|-)/),
+      indent = match[1];
+  el.listStart = match[2];
+  if (el.listStart) {
+    var splitRe = new RegExp("\\n" + indent + el.listStart),
+        listItems = ("\n" + item).split(splitRe);
+    for (var i = 1; i < listItems.length; i++) {
+      var bullet = el.listStart === "#" ? i : "\u2022",
+          newRow = ["tr", ["td", bullet]],
+          newIndent = indent + "  ",
+          lines = listItems[i].split(/\n/);
+      for (var j = 0; j < lines.length; j++) {
+        var line = parseItem(lines[j]);
+        
+      }
+      el[2].push(newRow);
+    }
+  }
   switch (item[0]) {
     case "#":
       tag = "ol";
@@ -161,7 +156,10 @@ function parseDoc (text) {
     var sectionSplit = sections[i].match(/(.+)\n\n([\s\S]+)/),
         header = sectionSplit[1],
         content = sectionSplit[2].split(/\n\n/),
-        section = ["section", {title: header}];
+        id = header.toLowerCase().replace(/ /g, "-"),
+        a = ["a", {href: "#" + id}, header],
+        h1 = ["h1", {"class": "section-header"}, a],
+        section = ["div", {id: id, class: "section"}, h1];
     for (var j = 0; j < content.length; j++) {
       section.push(parseItem(content[j]));
     }
@@ -186,7 +184,7 @@ function buildManual (fileName, text) {
 
   var doc = parseDoc(text),
       sections = buildDoc(doc),
-      height = 0,
+      currHeight = 0,
       pageNo = 1,
       pageHeight = 9 * 96,
       currPage = firstPage.getElementsByClassName("content")[0],
@@ -196,7 +194,7 @@ function buildManual (fileName, text) {
     
     var section = sections[i],
         header = section.getElementsByTagName("h1")[0],
-        pageRemaining = pageHeight - height,
+        pageRemaining = pageHeight - currHeight,
         startPage = pageNo,
         sectionId = section.id;
   
@@ -204,19 +202,37 @@ function buildManual (fileName, text) {
   
     var sectionHeight = section.offsetHeight;
     
-    if (sectionHeight - 16 > pageRemaining) {
-      
-      height = 0;
-      pageNo++;
+    if (sectionHeight > pageRemaining) {
     
       var beforeBreak = section.cloneNode(true),
           newPage = page.cloneNode(true),
           pageLink = newPage.querySelector(".page-number a"),
-          headerHeight = header.offsetHeight + 16;
-    
+          headerHeight = header.offsetHeight;
+      
+      pageNo++;
       pageLink.innerText = pageNo;
       pageLink.href = "#page-" + pageNo;
       pageLink.id = "page-" + pageNo;
+      
+      document.body.appendChild(newPage);
+      currPage = newPage.getElementsByClassName("content")[0];
+      
+      if (headerHeight > pageRemaining) {
+        currPage.appendChild(section);
+      } else {
+        for (var j = 1; j < section.childNodes.length; j++) {
+          var child = section.childNodes[j];
+          if (child.offsetHeight > pageRemaining) {
+            
+          } else {
+            currHeight += child.offsetHeight;
+            pageRemaining -= child.offsetHeight;
+          }
+        }
+      }
+      
+      /*
+      height = 0;
       
       if (pageRemaining >= headerHeight + 32) {
         var cutOff = headerHeight;
@@ -249,10 +265,11 @@ function buildManual (fileName, text) {
     } else {
       height += sectionHeight;
     }
+    */
   
     if (sectionId) tableOfContents.push([header.innerText, sectionId, startPage]);
   
-    currPage.appendChild(section);
+    // currPage.appendChild(section);
   }
 
   var pageloc = location.origin + location.pathname + location.search,
