@@ -40,6 +40,7 @@ Here is what you will need to do:
 - Send yourself an email to see your email signature. Double-check the info in your signature to make sure it's correct.
 # *Find other applications:* You should also find other applications that you might use frequently and pin them to the taskbar. Common applications include:
 ## Excel
+## File Explorer
 ## FileMaker Pro
 ## Google Chrome
 ## Word
@@ -60,7 +61,9 @@ If you need any help with any of this, reach out to your manager or IT.
 
 Share Drive
 
-The Share Drive (aka the S Drive) is where most RLS documents are found.  It should be accessible from any office PC and the terminal server (more on that at [link "#to-do"]).
+The share drive is where most RLS documents are found.  It should be accessible from any office PC and the terminal server (more on that at [link: #to-do]).
+
+To access the share drive, open File Explorer (search for it in the search bar, open it, then pin the icon to the taskbar).  On the lefthand side of the window, under "This PC", you should see "share (\\rls-app) (S:)".  Click on it, and you will see a listing of folders and files on the right.
 
 
 
