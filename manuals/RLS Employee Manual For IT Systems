@@ -61,9 +61,19 @@ If you need any help with any of this, reach out to your manager or IT.
 
 Share Drive
 
-The share drive is where most RLS documents are found.  It should be accessible from any office PC and the terminal server (more on that at [link: #to-do]).
+The Share drive is where most RLS documents are found.  It should be accessible from any office PC and the terminal server (more on that at [link: #to-do]).
 
-To access the share drive, open File Explorer (search for it in the search bar, open it, then pin the icon to the taskbar).  On the lefthand side of the window, under "This PC", you should see "share (\\rls-app) (S:)".  Click on it, and you will see a listing of folders and files on the right.
+To access the Share drive, open File Explorer (search for it in the search bar, open it, then pin the icon to the taskbar).  On the lefthand side of the window, under "This PC", you should see "share (\\rls-app) (S:)".  Click on it, and you will see a listing of folders and files on the right.
+
+The vast majority of documents that you will need are found in the folder *RLS Operations*.  Double click on that folder, and you will see the following, among other things:
+
+# *Contract Information*: Contains all the files pertaining to shuttle contracts.
+# *Departments*: Contains department-level information. Mostly for use by managers.
+# *Forms - Accounting*: Contains useful accounting-related documents, including the expense reimbursement form.
+# *Forms - HR*: Contains useful HR documents, including the employee handbook and TEAM tracker form.
+# *Forms - Payroll*: Contains many useful payroll-related documents, including the annual payroll schedule and the leave request form.
+
+*NOTE*: Be careful what you do in the Share drive!  Do not edit, delete or move documents or folders that do not belong to you.  If you are unsure, ask your manager!
 
 
 
