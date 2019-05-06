@@ -37,6 +37,7 @@ Here is what you will need to do:
 - Click on the search bar next to the Start menu that says "Type here to search", then search for Outlook.
 - The first time you open Outlook, it will ask you to enter your network credentials again. Choose to save them so you don't have to enter them again in the future.
 - It's a good idea to right-click on the icon on your taskbar (bottom of the screen), then choose "pin to taskbar" so that Outlook can always be easily accessed from the taskbar.
+- Send yourself an email to see your email signature. Double-check the info in your signature to make sure it's correct.
 # *Find other applications:* You should also find other applications that you might use frequently and pin them to the taskbar. Common applications include:
 ## Excel
 ## FileMaker Pro
@@ -59,3 +60,4 @@ TO DO
 
 # How to check voicemail
 # Voicemail should go to email
+# How to update AD info
