@@ -224,11 +224,11 @@ function buildManual (fileName, text) {
             }
           }
           if (child.innerText === "") atLeastOneLine = true;
-        } else if (section.offsetheight > pageRemaining) {
+        } else if (section.offsetHeight > pageRemaining) {
           // console.log(child);
           if (child.childNodes.length > 0) truncateChildren(child, clone);
-          if (el.childNodes.length > 0) truncateChildren(el, elClone);
         }
+        if (section.offsetHeight > pageRemaining && el.childNodes.length > 0) truncateChildren(el, elClone);
       })(section, newSection);
     
       sections = sections.slice(0, i + 1).concat([newSection]).concat(sections.slice(i + 1));
