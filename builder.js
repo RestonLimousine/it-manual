@@ -227,7 +227,7 @@ function buildManual (fileName, text) {
           }
         } else if (!atLeastOneLine) {
           truncateChildren(child, clone);
-          truncateChildren(el, elClone);
+          if (el.childNodes.length > 0) truncateChildren(el, elClone);
         }
       })(section, newSection);
     }
