@@ -74,7 +74,8 @@ body {
 }
 
 .ul .bullet-td, .ol .bullet-td {
-  text-align: top;
+  vertical-align: top;
+  text-align: right;
 }
 
 @media print {
