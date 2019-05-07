@@ -202,8 +202,6 @@ function buildManual (fileName, text) {
       var atLeastOneLine = false,
           newSection = createElement(["div", {class: "section"}]);
       
-      currPage.appendChild(newSection);
-      
       (function truncateChildren (el, elClone) {
         var childNodes = el.childNodes,
             child = childNodes[childNodes.length - 1],
