@@ -76,6 +76,8 @@ body {
 .ul .bullet-td, .ol .bullet-td {
   vertical-align: top;
   text-align: right;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 @media print {
