@@ -179,6 +179,8 @@ function buildManual (fileName, text) {
         startPage = pageNo,
         sectionId = section.id;
   
+    console.log(section);
+    
     currPage.appendChild(section);
   
     var sectionHeight = section.offsetHeight;
