@@ -73,6 +73,10 @@ body {
   border-collapse: collapse;
 }
 
+.ul .bullet-td, .ol .bullet-td {
+  text-align: top;
+}
+
 @media print {
   .page {
     margin-bottom: 0;
