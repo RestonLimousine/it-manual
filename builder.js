@@ -224,6 +224,7 @@ function buildManual (fileName, text) {
           }
           if (child.innerText !== "") {
             atLeastOneLine = true;
+            console.log(clone);
             clone.classList.remove("start-num");
           }
         } else if (section.offsetHeight > pageRemaining) {
