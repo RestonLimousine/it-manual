@@ -67,6 +67,7 @@ body {
 
 .content-table {
   border-collapse: collapse;
+  line-height: 1.5em;
 }
 
 .section > .content-table > tbody > tr:last-child > td {
