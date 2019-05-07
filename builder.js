@@ -116,10 +116,12 @@ function parseItem (item) {
       for (var j = 0; j < lines.length; j++) {
         var line = parseItem(lines[j]);
         if (lastItem.listStart === line.listStart) {
-          if (isOL) line[2][1][1][2] = j + 1 + ".";
+          if (line.listStart === "#")
+            line[2][1][1][2] = j + lastItem.startNum + ".";
           lastItem[2].push(line[2][1]);
         } else if (line.listStart) {
           lastItem = line;
+          lastItem.startNum = j;
           td.push(line);
         } else {
           td.push(line);
