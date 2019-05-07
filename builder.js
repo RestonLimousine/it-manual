@@ -101,8 +101,8 @@ function parseItem (item) {
   if (match) {
     el[1].class += " " + ({"#": "ol", "-": "ul"})[match[2]];
     el.listItem = match[2];
-    var indent = match[1];
-    var splitRe = new RegExp("\\n" + indent + match[2]),
+    var indent = match[1],
+        splitRe = new RegExp("\\n" + indent + match[2]),
         listItems = ("\n" + item).split(splitRe);
     for (var i = 1; i < listItems.length; i++) {
       var bullet = ({"#": i + ".", "-": "\u2022"})[match[2]],
@@ -125,7 +125,7 @@ function parseItem (item) {
       el[2].push(newRow);
     }
   } else {
-    el[2].push(["div"].concat(parseText(item)));
+    el[2].push(["tr", ["td"].concat(parseText(item))]);
   }
   return el;
 }
