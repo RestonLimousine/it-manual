@@ -230,14 +230,13 @@ function buildManual (fileName, text) {
             atLeastOneLine = true;
             clone.classList.remove("start-num");
           }
-        } else if (section.offsetHeight > pageRemaining) {
-          if (child.childNodes.length > 0) {
+        } else {
+          if (section.offsetHeight > pageRemaining && child.childNodes.length > 0) {
             truncateChildren(child, clone);
-          } else {
+          }
+          if (child.childNodes.length === 0) {
             child.remove();
           }
-        } else if (child.childNodes.length === 0) {
-          child.remove();
         }
         
         if (section.offsetHeight > pageRemaining && el.childNodes.length > 0) truncateChildren(el, elClone);
