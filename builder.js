@@ -140,10 +140,9 @@ function parseDoc (text) {
         id = header.toLowerCase().replace(/ /g, "-"),
         a = ["a", {href: "#" + id}, header],
         h1 = ["h1", {"class": "section-header"}, a],
-        tbody = ["tbody", ["tr", h1]],
-        section = ["table", {id: id, class: "section"}, tbody];
+        section = ["div", {id: id, class: "section"}, h1];
     for (var j = 0; j < content.length; j++) {
-      tbody.push(["tr", parseItem(content[j])]);
+      section.push(parseItem(content[j]));
     }
     out.push(section);
   }
