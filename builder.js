@@ -96,7 +96,7 @@ function parseText (text) {
 }
 
 function parseItem (item) {
-  var el = ["table", {}, ["tbody"]],
+  var el = ["table", {class: "listing"}, ["tbody"]],
       match = item.match(/^(\s*)(#|-)/),
       indent = match[1];
   el.listStart = match[2];
@@ -107,44 +107,24 @@ function parseItem (item) {
       var bullet = el.listStart === "#" ? i : "\u2022",
           newRow = ["tr", ["td", bullet]],
           newIndent = indent + "  ",
-          lines = listItems[i].split(/\n/);
+          newSplitRe = new RegExp("\\n" + newIndent),
+          lines = listItems[i].split(newSplitRe),
+          lastItem = [];
       for (var j = 0; j < lines.length; j++) {
         var line = parseItem(lines[j]);
-        
+        if (lastItem.listStart === line.listStart) {
+          lastItem[2].push(line[2][1]);
+        } else if (line.listStart) {
+          lastItem = line;
+          newRow.push(line);
+        } else {
+          newRow.push(line);
+        }
       }
       el[2].push(newRow);
     }
-  }
-  switch (item[0]) {
-    case "#":
-      tag = "ol";
-    case "-":
-      tag = tag || "ul";
-      var splitRe = new RegExp(item[0] + "+ ");
-      splitRe = new RegExp("\\n" + item.match(splitRe)[0]);
-      listItems = ("\n" + item).split(splitRe);
-      el = [tag];
-      for (var i = 1; i < listItems.length; i++) {
-        var listItem = ["li"],
-            content = listItems[i].split(/\n/),
-            lastItem = [];
-        for (var j = 0; j < content.length; j++) {
-          var thisItem = parseItem(content[j]);
-          if ((thisItem[0] === "ul" || thisItem[0] === "ol") &&
-              thisItem[0] === lastItem[0]) {
-            lastItem.push(thisItem[1]);
-          } else if (thisItem[0] === "p") {
-            listItem = listItem.concat(thisItem.slice(1));
-          } else {
-            lastItem = thisItem;
-            listItem.push(thisItem);
-          }
-        }
-        el.push(listItem);
-      }
-    break;
-    default:
-      el = ["p"].concat(parseText(item));
+  } else {
+    el[2].push(["div"].concat(parseText(item)));
   }
   return el;
 }
