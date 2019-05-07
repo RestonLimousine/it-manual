@@ -112,14 +112,15 @@ function parseItem (item) {
           lines = listItems[i].split(newSplitRe),
           lastItem = {listStart: {}};
       for (var j = 0; j < lines.length; j++) {
-        var line = parseItem(lines[j]);
+        var line = parseItem(lines[j]),
+            cell = ["td", line];
         if (lastItem.listStart === line.listStart) {
           lastItem[2].push(line[2][1]);
         } else if (line.listStart) {
           lastItem = line;
-          newRow.push(line);
+          newRow.push(cell);
         } else {
-          newRow.push(line);
+          newRow.push(cell);
         }
       }
       el[2].push(newRow);
