@@ -225,7 +225,6 @@ function buildManual (fileName, text) {
           }
           if (child.innerText !== "") atLeastOneLine = true;
         } else if (section.offsetHeight > pageRemaining) {
-          // console.log(child);
           if (child.childNodes.length > 0) truncateChildren(child, clone);
           if (!atLeastOneLine) child.remove();
         }
@@ -260,7 +259,7 @@ function buildManual (fileName, text) {
 
   var heightUsed = 0;
   
-  tableOfContentsPage = tabletOfContentsPage.getElementsByClassName("content")[0];
+  tableOfContentsPage = tableOfContentsPage.getElementsByClassName("content")[0];
 
   for (i = 0; i < tableOfContentsPage.childNodes.length; i++) {
     heightUsed += tableOfContentsPage.childNodes[i].offsetHeight;
