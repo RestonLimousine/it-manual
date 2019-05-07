@@ -105,8 +105,8 @@ function parseItem (item) {
     var splitRe = new RegExp("\\n" + indent + match[2]),
         listItems = ("\n" + item).split(splitRe);
     for (var i = 1; i < listItems.length; i++) {
-      var bullet = ({"#": i, "-": "\u2022"})(match[2]),
-          newRow = ["tr", ["td", bullet]],
+      var bullet = ({"#": i + ".", "-": "\u2022"})(match[2]),
+          newRow = ["tr", ["td", {class: "bullet-td"}, bullet]],
           newIndent = indent + "  ",
           newSplitRe = new RegExp("\\n" + newIndent),
           lines = listItems[i].split(newSplitRe),
