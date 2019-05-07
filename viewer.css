@@ -76,17 +76,17 @@ body {
   padding-right: 10px;
 }
 
-.ul .bullet-td::before {
-  content: "\u2022";
+.ul > tbody > tr > .bullet-td::before {
+  content: "\2022";
 }
 
 .ol {
   counter-reset: ol-count;
 }
 
-.ol .bullet-td::before {
+.ol > tbody > tr > .bullet-td::before {
   counter-increment: ol-count;
-  content: counter(ol-count);
+  content: counter(ol-count) ".";
 }
 
 .content-td {
