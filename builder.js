@@ -100,6 +100,7 @@ function parseItem (item) {
       match = item.match(/^(\s*)(#|-)/);
   if (match) {
     el[1].class += " " + ({"#": "ol", "-": "ul"})[match[2]];
+    el[1].class += " start-num";
     el.listStart = match[2];
     var indent = match[1],
         splitRe = new RegExp("\\n" + indent + match[2]),
@@ -206,6 +207,7 @@ function buildManual (fileName, text) {
         var childNodes = el.childNodes,
             child = childNodes[childNodes.length - 1],
             clone = child.cloneNode();
+        clone.removeClass("start-num");
         elClone.insertBefore(clone, elClone.childNodes[0]);
         if (child.tagName === "SPAN") {
           while (section.offsetHeight > pageRemaining) {
