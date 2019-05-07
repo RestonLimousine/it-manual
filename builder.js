@@ -224,7 +224,6 @@ function buildManual (fileName, text) {
           }
           if (child.innerText !== "") {
             atLeastOneLine = true;
-            console.log(clone);
             clone.classList.remove("start-num");
           }
         } else if (section.offsetHeight > pageRemaining) {
@@ -233,6 +232,9 @@ function buildManual (fileName, text) {
           } else {
             child.remove();
           }
+        }
+        if (child.childNodes.length > 0) {
+          clone.classList.remove("start-num");
         }
         if (section.offsetHeight > pageRemaining && el.childNodes.length > 0) truncateChildren(el, elClone);
       })(section, newSection);
