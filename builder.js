@@ -141,6 +141,7 @@ function parseDoc (text) {
         a = ["a", {href: "#" + id}, header],
         h1 = ["h1", {"class": "section-header"}, a],
         section = ["div", {id: id, class: "section"}, h1];
+    console.log(header, id);
     for (var j = 0; j < content.length; j++) {
       section.push(parseItem(content[j]));
     }
@@ -182,8 +183,6 @@ function buildManual (fileName, text) {
     currPage.appendChild(section);
   
     var sectionHeight = section.offsetHeight;
-    
-    console.log(section, sectionHeight, pageRemaining);
     
     if (sectionHeight > pageRemaining) {
     
