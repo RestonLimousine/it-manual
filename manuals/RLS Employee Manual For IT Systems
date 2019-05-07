@@ -3,8 +3,8 @@ Introduction
 Welcome to Reston Limousine! This guide is provided by the IT Department to help new employees get acquainted with the various IT systems they will be using in their jobs, and also to serve as a reference for employees to use throughout their time at Reston Limousine. The main objectives of this guide are to:
 
 - Introduce you to the various systems, tools and resources you may be using at Reston Limousine.
-- Train you on how to use these systems and tools, providing tips and suggestions based on best practices
-- Explain company and IT-department policies on the proper usage of these tools and systems
+- Provide guidance, tips and best practices on the use of these systems and tools.
+- Explain company and department policies relating to IT systems.
 
 
 
@@ -28,7 +28,7 @@ If you have just been hired, here is what to expect in your first few days:
 
 # *PC & Workstation:* Your manager will show you to the area where you will work. Some employees get an assigned workstation, while others share a workstation with other employees.
 # *Network Credentials:* IT will create a network account for you, and your manager will provide you the credentials you will use to log into your PC. These are the same credentials you will use for email and other services.
-# *Phone Extension:* If you were assigned a dedicated workstation with a desk phone, IT will register your extension to you.
+# *Phone Extension:* If you were assigned a dedicated workstation with a desk phone, IT will register your phone extension to you.
 
 Here is what you will need to do:
 
@@ -49,11 +49,11 @@ Here is what you will need to do:
   # Snip & Sketch (for screenshots)
   If you find that you don't use some of these applications very often, you can always unpin them from the taskbar later.
 # *Set up voicemail:* If you have a desk phone, make sure your it shows your name, then set up your voicemail.
-  # Dial 400
-  # When prompted, enter password 0000
-  # Press 3 for personal options
-  # Press 3 for name
-  # Press 2 to record your name, then record
+  # Dial *400*
+  # When prompted, enter password *0000*
+  # Press *3* for personal options
+  # Press *3* for name
+  # Press *2* to record your name, then record
 
 If you need any help with any of this, reach out to your manager or IT.
 
@@ -65,7 +65,7 @@ The Share drive is where most RLS documents are found.  It should be accessible 
 
 To access the Share drive, open File Explorer (search for it in the search bar, open it, then pin the icon to the taskbar).  On the lefthand side of the window, under "This PC", you should see "share (\\rls-app) (S:)".  Click on it, and you will see a listing of folders and files on the right.
 
-The vast majority of documents that you will need are found in the folder *RLS Operations*.  Double click on that folder, and you will see the following, among other things:
+The vast majority of documents that you will need are found in the folder *RLS Operations*.  Double click on that folder, and you will see the following folders, among many others:
 
 # *Contract Information*: Contains all the files pertaining to shuttle contracts.
 # *Departments*: Contains department-level information. Mostly for use by managers.
@@ -73,7 +73,7 @@ The vast majority of documents that you will need are found in the folder *RLS O
 # *Forms - HR*: Contains useful HR documents, including the employee handbook and TEAM tracker form.
 # *Forms - Payroll*: Contains many useful payroll-related documents, including the annual payroll schedule and the leave request form.
 
-*NOTE*: Be careful what you do in the Share drive!  Do not edit, delete or move documents or folders that do not belong to you.  If you are unsure, ask your manager!
+*NOTE*: Be *very* careful what you do in the Share drive!  Do not edit, delete or move documents or folders that do not belong to you.  If you are unsure, ask your manager!
 
 
 
