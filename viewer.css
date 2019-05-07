@@ -71,6 +71,9 @@ body {
 
 .content-table {
   border-collapse: collapse;
+}
+
+.section > .content-table {
   margin-bottom: 20px;
 }
 
