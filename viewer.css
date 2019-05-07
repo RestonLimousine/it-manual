@@ -69,11 +69,28 @@ body {
   padding-bottom: 20px;
 }
 
-.ul .bullet-td, .ol .bullet-td {
+.bullet-td {
   vertical-align: top;
   text-align: right;
   padding-left: 20px;
   padding-right: 10px;
+}
+
+.ul .bullet-td {
+  content: "\u2022";
+}
+
+.ol {
+  counter-reset: ol-count;
+}
+
+.ol .bullet-td {
+  counter-increment: ol-count;
+  content: counter(ol-count);
+}
+
+.content-td {
+  vertical-align: top;
 }
 
 @media print {
