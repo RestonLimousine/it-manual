@@ -178,8 +178,6 @@ function buildManual (fileName, text) {
         pageRemaining = pageHeight - currHeight,
         startPage = pageNo,
         sectionId = section.id;
-  
-    console.log(section);
     
     currPage.appendChild(section);
   
