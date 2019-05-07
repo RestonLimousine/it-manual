@@ -21,7 +21,6 @@ body {
 
 .content {
   height: 864px;
-  overflow-y: hidden;
 }
 
 .page-number {
