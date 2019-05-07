@@ -8,6 +8,7 @@ body {
   align-items: center;
   font-family: Arial;
   margin: 0;
+  counter-reset: ol-count;
 }
 
 .page {
