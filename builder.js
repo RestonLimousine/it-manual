@@ -195,7 +195,7 @@ function buildManual (fileName, text) {
       pageLink.href = "#page-" + pageNo;
       pageLink.id = "page-" + pageNo;
       
-      currHeight += header.offsetHeight;
+      // currHeight += header.offsetHeight;
       
       document.body.appendChild(newPage);
       
