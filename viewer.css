@@ -8,7 +8,6 @@ body {
   align-items: center;
   font-family: Arial;
   margin: 0;
-  counter-reset: ol-count;
 }
 
 .page {
@@ -80,19 +79,6 @@ body {
   text-align: right;
   padding-left: 20px;
   padding-right: 10px;
-}
-
-.ul > tbody > tr > .bullet-td::before {
-  content: "\2022";
-}
-
-.start-num .start-num {
-  counter-reset: ol-count;
-}
-
-.ol > tbody > tr > .bullet-td::before {
-  counter-increment: ol-count;
-  content: counter(ol-count) ".";
 }
 
 .content-td {
