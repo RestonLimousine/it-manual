@@ -97,10 +97,10 @@ function parseText (text) {
 
 function parseItem (item) {
   var el = ["table", {class: "content-table"}, ["tbody"]],
-      match = item.match(/^(\s*)(#|-)/),
-      indent = match[1];
-  el.listStart = match[2];
-  if (el.listStart) {
+      match = item.match(/^(\s*)(#|-)/);
+  if (match) {
+    el.listStart = match[2];
+    var indent = match[1];
     var splitRe = new RegExp("\\n" + indent + el.listStart),
         listItems = ("\n" + item).split(splitRe);
     for (var i = 1; i < listItems.length; i++) {
