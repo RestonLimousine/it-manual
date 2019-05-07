@@ -76,7 +76,7 @@ body {
   padding-right: 10px;
 }
 
-.ul .bullet-td {
+.ul .bullet-td::before {
   content: "\u2022";
 }
 
@@ -84,7 +84,7 @@ body {
   counter-reset: ol-count;
 }
 
-.ol .bullet-td {
+.ol .bullet-td::before {
   counter-increment: ol-count;
   content: counter(ol-count);
 }
