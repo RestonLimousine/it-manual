@@ -99,12 +99,13 @@ function parseItem (item) {
   var el = ["table", {class: "content-table"}, ["tbody"]],
       match = item.match(/^(\s*)(#|-)/);
   if (match) {
-    el.listStart = match[2];
+    el[1].class += " " + ({"#": "ol", "-": "ul"})[match[2]];
+    el.listItem = match[2];
     var indent = match[1];
-    var splitRe = new RegExp("\\n" + indent + el.listStart),
+    var splitRe = new RegExp("\\n" + indent + match[2]),
         listItems = ("\n" + item).split(splitRe);
     for (var i = 1; i < listItems.length; i++) {
-      var bullet = el.listStart === "#" ? i : "\u2022",
+      var bullet = ({"#": i, "-": "\u2022"})(match[2]),
           newRow = ["tr", ["td", bullet]],
           newIndent = indent + "  ",
           newSplitRe = new RegExp("\\n" + newIndent),
