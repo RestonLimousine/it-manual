@@ -109,7 +109,7 @@ function parseItem (item) {
           newIndent = indent + "  ",
           newSplitRe = new RegExp("\\n" + newIndent),
           lines = listItems[i].split(newSplitRe),
-          lastItem = [];
+          lastItem = {listStart: {}};
       for (var j = 0; j < lines.length; j++) {
         var line = parseItem(lines[j]);
         if (lastItem.listStart === line.listStart) {
