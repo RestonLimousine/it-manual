@@ -218,13 +218,13 @@ function buildManual (fileName, text) {
                 cloneText = _cloneText === "" ? [] : [_cloneText];
             child.innerText = split[0];
             clone.innerText = cloneText.concat([split[1]]).join("\n");
+            console.log(child.innerText);
             if (child.innerText === "") {
               child.remove();
               break;
-            } else {
-              atLeastOneLine = true;
             }
           }
+          if (child.innerText === "") atLeastOneLine = true;
         } else if (!atLeastOneLine) {
           truncateChildren(child, clone);
           if (el.childNodes.length > 0) truncateChildren(el, elClone);
