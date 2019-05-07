@@ -96,7 +96,7 @@ function parseText (text) {
 }
 
 function parseItem (item) {
-  var el = ["table", {class: "listing"}, ["tbody"]],
+  var el = ["table", {class: "content-table"}, ["tbody"]],
       match = item.match(/^(\s*)(#|-)/),
       indent = match[1];
   el.listStart = match[2];
