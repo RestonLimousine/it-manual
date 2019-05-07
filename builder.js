@@ -212,12 +212,12 @@ function buildManual (fileName, text) {
         if (child.tagName === "SPAN") {
           while (section.offsetHeight > pageRemaining) {
             var text = child.innerText,
-                _split = text.split(/^([\s\S]*)\n(.*)$/),
-                split = _split || ["", text],
+                _split = text.match(/^([\s\S]*)\n(.*)$/),
+                split = _split || ["", "", text],
                 _cloneText = clone.innerText,
-                cloneText = _cloneText === "" ? [] : ["", _cloneText];
-            child.innerText = split[0];
-            clone.innerText = cloneText.concat([split[1]]).join("\n");
+                cloneText = _cloneText === "" ? [] : [_cloneText];
+            child.innerText = split[1];
+            clone.innerText = cloneText.concat([split[2]]).join("\n");
             console.log(child.innerText);
             if (child.innerText === "") {
               child.remove();
