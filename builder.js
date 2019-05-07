@@ -141,7 +141,6 @@ function parseDoc (text) {
         a = ["a", {href: "#" + id}, header],
         h1 = ["h1", {"class": "section-header"}, a],
         section = ["div", {id: id, class: "section"}, h1];
-    console.log(header, id);
     for (var j = 0; j < content.length; j++) {
       section.push(parseItem(content[j]));
     }
@@ -224,8 +223,11 @@ function buildManual (fileName, text) {
           }
           if (child.innerText !== "") atLeastOneLine = true;
         } else if (section.offsetHeight > pageRemaining) {
-          if (child.childNodes.length > 0) truncateChildren(child, clone);
-          if (!atLeastOneLine) child.remove();
+          if (child.childNodes.length > 0) {
+            truncateChildren(child, clone);
+          } else {
+            child.remove();
+          }
         }
         if (section.offsetHeight > pageRemaining && el.childNodes.length > 0) truncateChildren(el, elClone);
       })(section, newSection);
@@ -239,6 +241,7 @@ function buildManual (fileName, text) {
       
     }
     
+    console.log(header);
     if (sectionId) tableOfContents.push([header.innerText, sectionId, startPage]);
   }
 
