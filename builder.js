@@ -218,7 +218,6 @@ function buildManual (fileName, text) {
                 cloneText = _cloneText === "" ? [] : [_cloneText];
             child.innerText = split[1];
             clone.innerText = cloneText.concat([split[2]]).join("\n");
-            console.log(child.innerText);
             if (child.innerText === "") {
               child.remove();
               break;
@@ -226,6 +225,7 @@ function buildManual (fileName, text) {
           }
           if (child.innerText === "") atLeastOneLine = true;
         } else if (!atLeastOneLine) {
+          console.log(child);
           truncateChildren(child, clone);
           if (el.childNodes.length > 0) truncateChildren(el, elClone);
         }
