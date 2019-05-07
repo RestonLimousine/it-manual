@@ -167,8 +167,8 @@ function buildManual (fileName, text) {
       sections = buildDoc(doc),
       currHeight = 0,
       pageNo = 1,
-      pageHeight = 9 * 96,
       currPage = firstPage.getElementsByClassName("content")[0],
+      pageHeight = currPage.offsetHeight,
       tableOfContents = [];
 
   for (var i = 0; i < sections.length; i++) {
@@ -185,73 +185,54 @@ function buildManual (fileName, text) {
     
     if (sectionHeight > pageRemaining) {
     
-      var beforeBreak = section.cloneNode(true),
-          newPage = page.cloneNode(true),
-          pageLink = newPage.querySelector(".page-number a"),
-          headerHeight = header.offsetHeight;
+      var newPage = page.cloneNode(true),
+          pageLink = newPage.querySelector(".page-number a");
       
       pageNo++;
       pageLink.innerText = pageNo;
       pageLink.href = "#page-" + pageNo;
       pageLink.id = "page-" + pageNo;
       
+      currHeight += header.offsetHeight;
+      
       document.body.appendChild(newPage);
+      
       currPage = newPage.getElementsByClassName("content")[0];
       
-      if (headerHeight > pageRemaining) {
-        currPage.appendChild(section);
-      } else {
-        for (var j = 1; j < section.childNodes.length; j++) {
-          var child = section.childNodes[j];
-          if (child.offsetHeight > pageRemaining) {
-            
-          } else {
-            currHeight += child.offsetHeight;
-            pageRemaining -= child.offsetHeight;
-          }
-        }
-      }
+      var atLeastOneLine = false,
+          newSection = createElement(["div", {class: "section"}]);
       
-      /*
-      height = 0;
+      currPage.appendChild(newSection);
       
-      if (pageRemaining >= headerHeight + 32) {
-        var cutOff = headerHeight;
-        for (var j = 1; j < section.childNodes.length; j++) {
-          var node = section.childNodes[j];
-          cutOff += node.offsetHeight + 16;
-          var diff = pageRemaining - cutOff;
-          if (diff < -16) {
-            cutOff -= Math.ceil((Math.abs(diff) - 16) / 32) * 32;
-            break;
+      (function truncateChildren (el, elClone) {
+        var childNodes = el.childNodes,
+            child = childNodes[childNodes.length - 1],
+            clone = child.cloneNode();
+        elClone.insertBefore(clone, elClone.childNodes[0]);
+        if (child.tagName === "SPAN") {
+          while (section.offsetHeight > pageRemaining) {
+            var text = child.innerText,
+                _split = text.split(/^([\s\S]*)\n(.*)$/),
+                split = _split || ["", text],
+                _cloneText = clone.innerText,
+                cloneText = _cloneText === "" ? [] : [_cloneText];
+            child.innerText = split[0];
+            clone.innerText = cloneText.concat([split[1]]).join("\n");
+            if (child.innerText === "") {
+              child.remove();
+              break;
+            } else {
+              atLeastOneLine = true;
+            }
           }
+        } else if (!atLeastOneLine) {
+          truncateChildren(child, clone);
+          truncateChildren(el, elClone);
         }
-        var cutOffDiff = sectionHeight - cutOff;
-        currPage.appendChild(beforeBreak);
-        if (beforeBreak.style.height) {
-          var beforeBreakHeight = beforeBreak.offsetHeight;
-          currPage.style.height = cutOff;
-        } else {
-          beforeBreak.style.height = cutOff;
-        }
-        section.style.height = cutOffDiff;
-        section.style.display = "flex";
-        section.style.flexDirection = "column";
-        section.style.justifyContent = "flex-end";
-        section.id = "";
-        sections = sections.slice(0, i + 1).concat([section]).concat(sections.slice(i + 1));
-      }
-      currPage = newPage.getElementsByClassName("content")[0];
-      document.body.appendChild(newPage);
-    } else {
-      height += sectionHeight;
+      })(section, newSection);
     }
-    */
-  
+    
     if (sectionId) tableOfContents.push([header.innerText, sectionId, startPage]);
-      
-    }
-    // currPage.appendChild(section);
   }
 
   var pageloc = location.origin + location.pathname + location.search,
