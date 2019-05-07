@@ -14,14 +14,13 @@ body {
   background-color: white;
   padding: 96px;
   width: 624px;
-  height: 864px;
   line-height: 2em;
   margin-bottom: 48px;
   position: relative;
 }
 
 .content {
-  max-height: 864px;
+  height: 864px;
   overflow-y: hidden;
 }
 
