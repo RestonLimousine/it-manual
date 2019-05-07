@@ -232,9 +232,13 @@ function buildManual (fileName, text) {
       })(section, newSection);
     
       sections = sections.slice(0, i + 1).concat([newSection]).concat(sections.slice(i + 1));
-    }
+      currHeight = 0;
     
-    currHeight += section.offsetHeight;
+    } else {
+    
+      currHeight += section.offsetHeight;
+      
+    }
     
     if (sectionId) tableOfContents.push([header.innerText, sectionId, startPage]);
   }
