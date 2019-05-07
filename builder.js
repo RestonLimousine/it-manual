@@ -224,7 +224,7 @@ function buildManual (fileName, text) {
             }
           }
           if (child.innerText === "") atLeastOneLine = true;
-        } else if (!atLeastOneLine) {
+        } else {
           // console.log(child);
           truncateChildren(child, clone);
           if (el.childNodes.length > 0) truncateChildren(el, elClone);
