@@ -183,6 +183,8 @@ function buildManual (fileName, text) {
   
     var sectionHeight = section.offsetHeight;
     
+    console.log(section, sectionHeight, pageRemaining);
+    
     if (sectionHeight > pageRemaining) {
     
       var newPage = page.cloneNode(true),
@@ -223,7 +225,7 @@ function buildManual (fileName, text) {
           }
           if (child.innerText === "") atLeastOneLine = true;
         } else if (!atLeastOneLine) {
-          console.log(child);
+          // console.log(child);
           truncateChildren(child, clone);
           if (el.childNodes.length > 0) truncateChildren(el, elClone);
         }
