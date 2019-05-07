@@ -84,7 +84,7 @@ body {
   content: "\2022";
 }
 
-.ol {
+.start-num {
   counter-reset: ol-count;
 }
 
