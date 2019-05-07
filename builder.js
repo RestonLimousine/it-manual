@@ -100,7 +100,7 @@ function parseItem (item) {
       match = item.match(/^(\s*)(#|-)/);
   if (match) {
     el[1].class += " " + ({"#": "ol", "-": "ul"})[match[2]];
-    el.listItem = match[2];
+    el.listStart = match[2];
     var indent = match[1],
         splitRe = new RegExp("\\n" + indent + match[2]),
         listItems = ("\n" + item).split(splitRe);
