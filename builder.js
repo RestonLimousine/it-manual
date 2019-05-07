@@ -245,7 +245,6 @@ function buildManual (fileName, text) {
       
     }
     
-    console.log(header);
     if (sectionId) tableOfContents.push([header.innerText, sectionId, startPage]);
   }
 
