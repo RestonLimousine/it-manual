@@ -215,7 +215,7 @@ function buildManual (fileName, text) {
                 _split = text.split(/^([\s\S]*)\n(.*)$/),
                 split = _split || ["", text],
                 _cloneText = clone.innerText,
-                cloneText = _cloneText === "" ? [] : [_cloneText];
+                cloneText = _cloneText === "" ? [] : ["", _cloneText];
             child.innerText = split[0];
             clone.innerText = cloneText.concat([split[1]]).join("\n");
             console.log(child.innerText);
