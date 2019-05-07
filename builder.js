@@ -236,11 +236,12 @@ function buildManual (fileName, text) {
           } else {
             child.remove();
           }
+        } else if (child.childNodes.length === 0) {
+          child.remove();
         }
-        if (child.childNodes.length > 0) {
-          clone.classList.remove("start-num");
-        }
+        
         if (section.offsetHeight > pageRemaining && el.childNodes.length > 0) truncateChildren(el, elClone);
+        
       })(section, newSection);
     
       sections = sections.slice(0, i + 1).concat([newSection]).concat(sections.slice(i + 1));
