@@ -248,7 +248,8 @@ function buildManual (fileName, text) {
     */
   
     if (sectionId) tableOfContents.push([header.innerText, sectionId, startPage]);
-  
+      
+    }
     // currPage.appendChild(section);
   }
 
