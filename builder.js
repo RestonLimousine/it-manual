@@ -106,21 +106,20 @@ function parseItem (item) {
         listItems = ("\n" + item).split(splitRe);
     for (var i = 1; i < listItems.length; i++) {
       var bullet = ({"#": i + ".", "-": "\u2022"})[match[2]],
-          newRow = ["tr", ["td", {class: "bullet-td"}, bullet]],
+          newRow = ["tr", ["td", {class: "bullet-td"}, bullet], ["td"]],
           newIndent = indent + "  ",
           newSplitRe = new RegExp("\\n" + newIndent),
           lines = listItems[i].split(newSplitRe),
           lastItem = {listStart: {}};
       for (var j = 0; j < lines.length; j++) {
-        var line = parseItem(lines[j]),
-            cell = ["td", line];
+        var line = parseItem(lines[j]);
         if (lastItem.listStart === line.listStart) {
           lastItem[2].push(line[2][1]);
         } else if (line.listStart) {
           lastItem = line;
-          newRow.push(cell);
+          newRow[2].push(line);
         } else {
-          newRow.push(cell);
+          newRow[2].push(line);
         }
       }
       el[2].push(newRow);
