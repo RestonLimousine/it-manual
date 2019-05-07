@@ -99,15 +99,15 @@ function parseItem (item) {
   var el = ["table", {class: "content-table"}, ["tbody"]],
       match = item.match(/^(\s*)(#|-)/);
   if (match) {
-    el[1].class += " " + ({"#": "ol", "-": "ul"})[match[2]];
-    el[1].class += " start-num";
+    var isOL = match[2] === "#";
+    el[1].class += " " + (isOL? "ol" : "-");
     el.listStart = match[2];
     var indent = match[1],
         splitRe = new RegExp("\\n" + indent + match[2]),
         listItems = ("\n" + item).split(splitRe);
     for (var i = 1; i < listItems.length; i++) {
       var td = ["td", {class: "content-td"}],
-          bullet = ({"#": i + ".", "-": "\u2022"})(match[2]),
+          bullet = isOL ? (i + ".") : "\u2022",
           newRow = ["tr", ["td", {class: "bullet-td"}, bullet], td],
           newIndent = indent + "  ",
           newSplitRe = new RegExp("\\n" + newIndent),
@@ -116,7 +116,7 @@ function parseItem (item) {
       for (var j = 0; j < lines.length; j++) {
         var line = parseItem(lines[j]);
         if (lastItem.listStart === line.listStart) {
-          line[2][1][1][2] = j + 1 + ".";
+          if (isOL) line[2][1][1][2] = j + 1 + ".";
           lastItem[2].push(line[2][1]);
         } else if (line.listStart) {
           lastItem = line;
