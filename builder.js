@@ -247,20 +247,23 @@ function buildManual (fileName, text) {
   var pageloc = location.origin + location.pathname + location.search,
       tableOfContentsPage = createElement([
         "div", {class: "page"},
-        ["h1", {class: "main-title"}, fileName],
-        ["p", ["b", "Note: "],
-              "If you are reading a PDF or printed version of this manual, " +
-              "it may be out of date. The latest version can be found online at ",
-          ["a", {href: pageloc, target: "_blank"}, pageloc]],
-        ["h1", {class: "section-header"}, "Table Of Contents"]
+        ["div", {class: "content"},
+          ["h1", {class: "main-title"}, fileName],
+          ["p", ["b", "Note: "],
+                "If you are reading a PDF or printed version of this manual, " +
+                "it may be out of date. The latest version can be found online at ",
+            ["a", {href: pageloc, target: "_blank"}, pageloc]],
+          ["h1", {class: "section-header"}, "Table Of Contents"]]
       ]);
 
   document.body.insertBefore(tableOfContentsPage, firstPage);
 
   var heightUsed = 0;
+  
+  tableOfContentsPage = tabletOfContentsPage.getElementsByClassName("content")[0];
 
   for (i = 0; i < tableOfContentsPage.childNodes.length; i++) {
-    heightUsed += tableOfContentsPage.childNodes[i].getBoundingClientRect().height;
+    heightUsed += tableOfContentsPage.childNodes[i].offsetHeight;
   }
 
   for (i = 0; i < tableOfContents.length; i++) {
@@ -270,7 +273,7 @@ function buildManual (fileName, text) {
         div = ["div", {class: "contents-listing"}, sectionName, sectionPage];
     div = createElement(div);
     tableOfContentsPage.appendChild(div);
-    heightUsed += div.getBoundingClientRect().height;
+    heightUsed += div.offsetHeight;
   }
 }
 
