@@ -230,6 +230,8 @@ function buildManual (fileName, text) {
           if (el.childNodes.length > 0) truncateChildren(el, elClone);
         }
       })(section, newSection);
+    
+      sections = sections.slice(0, i + 1).concat([newSection]).concat(sections.slice(i + 1));
     }
     
     if (sectionId) tableOfContents.push([header.innerText, sectionId, startPage]);
