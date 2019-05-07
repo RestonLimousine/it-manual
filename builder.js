@@ -234,6 +234,8 @@ function buildManual (fileName, text) {
       sections = sections.slice(0, i + 1).concat([newSection]).concat(sections.slice(i + 1));
     }
     
+    currHeight += section.offsetHeight;
+    
     if (sectionId) tableOfContents.push([header.innerText, sectionId, startPage]);
   }
 
