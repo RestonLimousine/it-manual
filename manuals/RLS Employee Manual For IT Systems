@@ -65,11 +65,13 @@ Every workstation has a PC, keyboard, mouse and at least one monitor. Some have 
 
 Be aware that hardware may be moved around from time to time as the company's needs change.  If you ever change PCs or use a different PC for a day, any of the settings you made or files you saved on your usual PC will not be present on the other PC.  As we will discuss below, this is why it is important to save files to the network rather than the PC's hard-drive.
 
+RLS also has other IT equipment, such as a projector. If you need something IT-related, whether permanently or temporarily, check with IT to see what we have in stock.
+
 
 
 Share Drive
 
-The Share drive is where most RLS documents are found.  It should be accessible from any office PC and the [goto: Terminal Server].
+The Share drive is where most important files are found.  It should be accessible from any office PC and the [goto: Terminal Server].
 
 To access the Share drive, open File Explorer (search for it in the search bar, open it, then pin the icon to the taskbar).  On the lefthand side of the window, under "This PC", you should see "share (\\rls-app) (S:)".  Click on it, and you will see a listing of folders and files on the right.
 
@@ -83,7 +85,7 @@ The vast majority of documents that you will need are found in the folder *RLS O
 
 *NOTE*: Be *very* careful what you do in the Share drive!  Do not edit, delete or move documents or folders that do not belong to you.  If you are unsure, ask your manager!
 
-Whenever you open a file on the Share drive, you prevent other users from being able to edit the file. Please be courteous to others and only keep files open for as long as you need to edit them. If someone else is editing a file when you try to open it, a pop-up window will give you the option to open the file in read-only mode. This is fine if all you needed was to read the file, but if you needed to make changes, then you will have to wait for the other user to finish editing. Feel free to send them an email asking them to inform you when they are done with the file. In emergencies, you can open the file in read-only mode, make changes, and save a copy of the file to your [goto: U Drive], but be advised that these changes will not be in the original file. Do not save copies of files on the Share drive, because this leads to confusion about which file is the most recent one.
+Whenever you open a file on the Share drive, you prevent other users from being able to edit the file. Please be courteous to others and only keep files open for as long as you need to edit them. If someone else is editing a file when you try to open it, a pop-up window will tell you who's using it and give you the option to open the file in read-only mode. This is fine if all you needed was to read the file, but if you needed to make changes, then you will have to wait for the other user to finish editing. Feel free to send them an email asking them to inform you when they are done with the file. In emergencies, you can open the file in read-only mode, make changes, and save a copy of the file to your [goto: U Drive], but be advised that these changes will not be in the original file. Do not save copies of files on the Share drive, because this leads to confusion about which file is the most recent one.
 
 Most users should not create new files or folders on the Share drive. Ask your manager first.  You can always create new files on your U drive (see below), email them to your manager to approval, then move them to the Share drive when approved.
 
@@ -113,9 +115,13 @@ Terminal Server
 
 The Terminal Server (TS) is a tool that allows you to access an RLS computer desktop remotely. It gives you access to the Share and U drives and to printers at the office, allowing you to work from home or wherever you have access to the internet.
 
-The TS is accessed through Remote Desktop Protocol (RDP).  If you are using a Windows computer, you should already have this application installed. If you're using an Apple computer or a mobile device (phone{/}tablet), then you should download the Microsoft Remote Desktop application. Set up will vary depending on which platform you're on, but you will need to add a new desktop. The PC Name (host name or IP address) is *remote.restonlimo.com*. Your username should include RLS as the domain: *RLS\username*. For example, if the username that you use to log into RLS PCs is *jdoe*, then your TS username is *RLS\jdoe*. The password is the same one that you use to log into RLS PCs.
+The TS is accessed through Remote Desktop Protocol (RDP).  If you are using a Windows computer, you should already have this application installed. If you're using an Apple computer or a mobile device (phone{/}tablet), then you should download the Microsoft Remote Desktop application. Set up will vary depending on which platform you're on, but you will need to add a new desktop. You will need to set the following:
 
-The first time you attempt to access the TS, you may see a warning message about the SSL certificate. Click "do not show this message again" and proceed with your connection.
+- *PC/Host name or IP address*: remote.restonlimo.com.
+- *Username*: The same username you use to log into your RLS PC, but with *RLS\* in front. For instance, if your username is *jdoe*, then your TS username is *RLS\jdoe*.
+- *Password*: The same one that you use to log into your RLS PC.
+
+The first time you attempt to access the TS, you may see a warning message about the SSL certificate. Click "do not show this message again" and proceed.
 
 Once logged into the TS, you will see a PC desktop.  This is *not* the same as the PC you use in the office.  Again, do not save files to the local hard drive, but only to the Share and U drives.  Anything you save on the Share or U drive on the TS will be accessible from your office PC and vice versa.
 
@@ -140,5 +146,4 @@ TO DO
 # How to check voicemail
 # Voicemail should go to email
 # How to update AD info
-# subsections
 # Office 365
