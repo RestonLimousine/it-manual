@@ -215,7 +215,7 @@ function buildManual (fileName, text) {
         if (child.tagName === "SPAN") {
           while (section.offsetHeight > pageRemaining) {
             var text = child.innerText,
-                _split = text.match(/^([\s\S]*)([ -])([^ -]*)$/),
+                _split = text.match(/^(.*)([ -])([^ \-]+)$/),
                 split = _split || ["", "", "", text],
                 _cloneText = clone.innerText,
                 cloneText = _cloneText === "" ? [] : [_cloneText];
