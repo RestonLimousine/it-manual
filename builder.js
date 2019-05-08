@@ -41,7 +41,7 @@ function parseNotation (start, text) {
   var tag,
       attrs = {},
       hrefPrefix = "",
-      content = [],
+      content = [text],
       target = "_blank";
   switch (start) {
     case "[email:":
@@ -56,7 +56,6 @@ function parseNotation (start, text) {
       text = text.trim();
       attrs.href = hrefPrefix + text;
       attrs.target = target;
-      content = [text];
     break;
     case "*":
       tag = "b";
@@ -64,12 +63,15 @@ function parseNotation (start, text) {
       tag = tag || "i";
       content = parseText(text);
     break;
+    case "{":
+      tag = "span";
+    break;
   }
   return [tag, attrs].concat(content);
 }
 
 function parseText (text) {
-  var specialStart = text.match(/\*|\/|\[\w+:/),
+  var specialStart = text.match(/\*|\/|\[\w+:|\{/),
       out = [text];
   if (specialStart) {
     specialStart = specialStart[0];
@@ -80,7 +82,8 @@ function parseText (text) {
           "/": "/",
           "[link:": "]",
           "[email:": "]",
-          "[goto:": "]"
+          "[goto:": "]",
+          "{": "}"
         },
         specialEnd = specialEnds[specialStart],
         textChopped = text.slice(specialStartIdx + specialStart.length),
