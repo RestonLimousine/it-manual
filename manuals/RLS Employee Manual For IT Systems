@@ -63,6 +63,8 @@ Hardware
 
 Every workstation has a PC, keyboard, mouse and at least one monitor. Some have two monitors, and others might have computer speakers or a printer.  If you have any issues with this hardware, you want replacements, or you want to add something, check with the IT department. We often have spare equipment and accessories in storage, and if not, then we can order tested-and-approved products, often at a discounted rate. Please do not order your own equipment, as this will make it difficult for us to troubleshoot issues and reuse hardware as distribution needs change.
 
+Be aware that hardware may be moved around from time to time as the company's needs change.  If you ever change PCs or use a different PC for a day, any of the settings you made or files you saved on your usual PC will not be present on the other PC.  As we will discuss below, this is why it is important to save files to the network rather than the PC's hard-drive.
+
 
 
 Share Drive
@@ -107,9 +109,37 @@ It is preferrable to use your U drive, rather than the above locations, for the 
 
 
 
+Terminal Server
+
+The Terminal Server (TS) is a tool that allows you to access an RLS computer desktop remotely. It gives you access to the Share and U drives and to printers at the office, allowing you to work from home or wherever you have access to the internet.
+
+The TS is accessed through Remote Desktop Protocol (RDP).  If you are using a Windows computer, you should already have this application installed. If you're using an Apple computer or a mobile device (phone/tablet), then you should download the Microsoft Remote Desktop application. Set up will vary depending on which platform you're on, but you will need to add a new desktop. The PC Name (host name or IP address) is *remote.restonlimo.com*. Your username should include RLS as the domain: *RLS\username*. For example, if the username that you use to log into RLS PCs is *jdoe*, then your TS username is *RLS\jdoe*. The password is the same one that you use to log into RLS PCs.
+
+The first time you attempt to access the TS, you may see a warning message about the SSL certificate. Click "do not show this message again" and proceed with your connection.
+
+Once logged into the TS, you will see a PC desktop.  This is *not* the same as the PC you use in the office.  Again, do not save files to the local hard drive, but only to the Share and U drives.  Anything you save on the Share or U drive on the TS will be accessible from your office PC and vice versa.
+
+The TS has an older version of Windows than the office PCs, but it has all the standard applications, such as Outlook, Excel, Word, PowerPoint, one or more internet browsers, and FileMaker. Search for the ones you think you will need, then pin them to the taskbar for easy access in the future.  Any settings you make on the TS, such as pinning applications to the taskbar, will remain the same no matter where you log into the TS from.
+
+
+
+The Help Desk
+
+RLS uses an IT consulting company called Envision to manage many aspects of our IT system and to provide assistance to users. Most IT issues you encounter, except as noted in this manual, should be addressed by Envision's Help Desk.
+
+If you are having a problem with a specific application on your computer, always try closing and reopening the application to see if that solves the problem. If that doesn't help, or the problem isn't with a specific application, then shut down your PC, wait a minute, and turn it back on again. If the problem is with some other equipment, such as your desk phone, then you should also try turning the device off, waiting a minute, and turning it back on. If this still doesn't help, then open a ticket with the Help Desk.
+
+The easiest way to open a ticket is to find the blue E on the right side of the taskbar at the bottom of your PC (or on the TS). If you don't see the blue E, click on the upward-pointing arrow in that area and you should see the blue E there.  After clicking on the blue E, choose "Create Service Ticket", then type a subject and message describing your problem.
+
+If you don't have access to the blue E, then you can send an email to [email: engineering@envision-consulting.com] or call [link: 1-833-535-8766].
+
+
+
 TO DO
 
 # How to check voicemail
 # Voicemail should go to email
 # How to update AD info
 # jumpto: link
+# phone linkes
+# Office 365
