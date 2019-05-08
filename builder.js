@@ -91,6 +91,7 @@ function parseText (text) {
     if (beforeSpecial.length > 0) out.push(beforeSpecial);
     out.push(parseNotation(specialStart, special));
     if (afterSpecial.length > 0) out = out.concat(parseText(afterSpecial));
+    console.log('"' + text + '"', out);
   }
   return out;
 }
