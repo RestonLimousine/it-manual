@@ -18,6 +18,7 @@ function createElement (el) {
   
   if (tag === "span") {
     el.innerText = contents[0];
+    console.log(el.innerText);
   } else {
     contents = buildDoc(contents);
     for (var i = 0; i < contents.length; i++) {
@@ -91,7 +92,6 @@ function parseText (text) {
     if (beforeSpecial.length > 0) out.push(beforeSpecial);
     out.push(parseNotation(specialStart, special));
     if (afterSpecial.length > 0) out = out.concat(parseText(afterSpecial));
-    console.log('"' + text + '"', out);
   }
   return out;
 }
