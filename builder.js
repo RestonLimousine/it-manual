@@ -188,8 +188,6 @@ function buildManual (fileName, text) {
         sectionId = section.id;
     
     currPage.appendChild(section);
-  
-    console.log(section.innerText);
     
     var sectionHeight = section.offsetHeight;
     
@@ -233,6 +231,7 @@ function buildManual (fileName, text) {
             atLeastOneLine = true;
             clone.classList.remove("start-num");
           }
+          console.log('"' + text + '"', '"' + clone.innerText + '"');
         } else {
           if (section.offsetHeight > pageRemaining && child.childNodes.length > 0) {
             truncateChildren(child, clone);
