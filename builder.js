@@ -214,7 +214,7 @@ function buildManual (fileName, text) {
         var childNodes = el.childNodes,
             child = childNodes[childNodes.length - 1],
             clone = child.cloneNode();
-        console.log(child, '"' + child.innerText + '"');
+        console.log(child.outerHTML);
         elClone.insertBefore(clone, elClone.childNodes[0]);
         if (child.tagName === "SPAN") {
           while (section.offsetHeight > pageRemaining) {
