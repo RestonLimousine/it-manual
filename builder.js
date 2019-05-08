@@ -280,12 +280,12 @@ function buildManual (fileName, text) {
     var section = sections[i],
         pageNo = section.dataset.page,
         subsections = section.getElementsByClassName("subsection-link");
-    if (section.id) j++;
     for (var k = 0; k < subsections.length; k++) {
       var header = subsections[k].textContent,
           id = headerToId(header);
       tableOfContents[j].push([header, id, pageNo]);
     }
+    if (section.id) j++;
   }
 
   var pageloc = location.origin + location.pathname + location.search,
