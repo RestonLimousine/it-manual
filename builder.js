@@ -32,7 +32,6 @@ function buildDoc (els) {
   var accum = [];
   for (var i = 0; i < els.length; i++) {
     var el = createElement(els[i]);
-    console.log(el, '"' + el.innerText + '"');
     accum = accum.concat([el]);
   }
   return accum;
@@ -190,6 +189,8 @@ function buildManual (fileName, text) {
     
     currPage.appendChild(section);
   
+    console.log(section.innerText);
+    
     var sectionHeight = section.offsetHeight;
     
     if (sectionHeight > pageRemaining) {
