@@ -18,7 +18,6 @@ function createElement (el) {
   
   if (tag === "span") {
     el.innerText = contents[0];
-    console.log(el.innerText);
   } else {
     contents = buildDoc(contents);
     for (var i = 0; i < contents.length; i++) {
@@ -221,6 +220,7 @@ function buildManual (fileName, text) {
                 split = _split || ["", "", text];
             child.innerText = split[1];
             clone.innerText = split[2] + clone.innerText;
+            console.log('"' + clone.innerText + '"');
             if (child.innerText === "") {
               child.remove();
               break;
