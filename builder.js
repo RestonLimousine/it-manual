@@ -46,10 +46,11 @@ function parseNotation (start, text) {
   switch (start) {
     case "[email:":
       hrefPrefix = "mailto:";
-      target = "";
+    case "[phone:":
+      hrefPrefix = hrefPrefix || "tel:";
     case "[goto:":
       target = "";
-      hrefPrefix = "#";
+      hrefPrefix = hrefPrefix || "#";
       // To Do: get section id from name
     case "[link:":
       tag = "a";
