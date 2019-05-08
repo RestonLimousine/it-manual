@@ -93,10 +93,8 @@ Whenever you have a file that you don't want to put on the Share drive, it is be
 
 It is preferrable to use your U drive, rather than the above locations, for the following reasons:
 
-# Save space on your PC
-  - PCs have limited hard-drive space
-  - Files on the Share and U drives *do not* take up space on your PC
-# Files on the Share and U drives are backed up regularly, so if anything happens, we can retrieve a recent backup
+# Save space on your PC. PCs have limited hard-drive space, and files on the Share and U drives *do not* take up space on your PC.
+# Files on the Share and U drives are backed up regularly, so if anything happens, we can retrieve a recent backup.
 # Files on the Share and U drives are accessible on other PCs and through the terminal server (more at [link: #to-do]). If you ever switch PCs or work on the terminal server, you will not have access to the files on your PC, but you will have access to those on the Share and U drives.
 
 
