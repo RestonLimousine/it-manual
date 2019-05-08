@@ -284,6 +284,7 @@ function buildManual (fileName, text) {
     for (var k = 0; k < subsections.length; k++) {
       var header = subsections[k].textContent,
           id = headerToId(header);
+      subsections[k].id = id;
       tableOfContents[j].push([header, id, pageNo]);
     }
   }
@@ -316,7 +317,7 @@ function buildManual (fileName, text) {
     var sectionName = ["a", {href: "#" + cont[1]}, cont[0]],
         sectionPage = ["a", {href: "#page-" + cont[2]}, cont[2]],
         div = ["div", {class: "contents-listing"}, sectionName, sectionPage];
-    div = contentsListing(div);
+    div = createElement(div);
     tableOfContentsPage.appendChild(div);
     return div;
   }
