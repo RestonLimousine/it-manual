@@ -240,6 +240,7 @@ function buildManual (fileName, text) {
             var bulletTd = child.getElementsByClassName("bullet-td")[0],
                 bulletClone = bulletTd.cloneNode(),
                 cloneFirstChild = clone.childNodes[0];
+            bulletClone.style.width = bulletTd.offsetWidth;
             clone.insertBefore(bulletClone, cloneFirstChild);
           }
         }
