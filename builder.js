@@ -217,10 +217,9 @@ function buildManual (fileName, text) {
             var text = child.innerText,
                 _split = text.match(/^(.*)([ \-])([^ \-]+)$/),
                 split = _split || ["", "", "", text],
-                _cloneText = clone.innerText,
-                cloneText = _cloneText === "" ? [] : [_cloneText];
+                cloneText = clone.innerText;
             child.innerText = split[1];
-            clone.innerText = cloneText.concat([split[3]]).join(split[2]);
+            clone.innerText = [cloneText, split[3]].join(split[2]);
             console.log(text, _split, child.innerText, clone.innerText);
             if (child.innerText === "") {
               child.remove();
