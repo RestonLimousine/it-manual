@@ -57,6 +57,10 @@ function parseNotation (start, text) {
       attrs.href = hrefPrefix + text;
       attrs.target = target;
     break;
+    case "[subsection:":
+      tag = "b";
+      attrs.class = "subsection-link";
+    break;
     case "*":
       tag = "b";
     case "/":
