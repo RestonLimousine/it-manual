@@ -143,6 +143,10 @@ function parseItem (item) {
   return el;
 }
 
+function headerToId (header) {
+  return header.toLowerCase().replace(/ /g, "-");
+}
+
 function parseDoc (text) {
   var sections = text.split(/\n{4,}/),
       out = [];
@@ -150,7 +154,7 @@ function parseDoc (text) {
     var sectionSplit = sections[i].match(/(.+)\n\n([\s\S]+)/),
         header = sectionSplit[1],
         content = sectionSplit[2].split(/\n\n/),
-        id = header.toLowerCase().replace(/ /g, "-"),
+        id = headerToId(header),
         a = ["a", {href: "#" + id}, header],
         h1 = ["h1", {"class": "section-header"}, a],
         section = ["div", {id: id, class: "section"}, h1];
@@ -207,8 +211,6 @@ function buildManual (fileName, text) {
       pageLink.textContent = pageNo;
       pageLink.href = "#page-" + pageNo;
       pageLink.id = "page-" + pageNo;
-      
-      // currHeight += header.offsetHeight;
       
       document.body.appendChild(newPage);
       
@@ -271,6 +273,20 @@ function buildManual (fileName, text) {
     
     if (sectionId) tableOfContents.push([header.textContent, sectionId, startPage]);
   }
+  
+  sections = document.getElementsByClassName("section");
+  
+  for (var i = 0, j = 0; i < sections.length; i++) {
+    var section = sections[i],
+        pageNo = section.dataset.page,
+        subsections = section.getElementsByClassName("subsection-link");
+    if (section.id) j++;
+    for (var k = 0; k < subsections.length; k++) {
+      var header = subsections[k].textContent,
+          id = headerToId(header);
+      tableOfContents[j].push([header, id, pageNo]);
+    }
+  }
 
   var pageloc = location.origin + location.pathname + location.search,
       tableOfContentsPage = createElement([
@@ -308,6 +324,7 @@ function buildManual (fileName, text) {
         j--;
       }
     }
+    console.log(tableOfContents[i]);
     div = createElement(div);
     tableOfContentsPage.appendChild(div);
     heightUsed += div.offsetHeight;
