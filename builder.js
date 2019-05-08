@@ -274,7 +274,7 @@ function buildManual (fileName, text) {
     if (sectionId) tableOfContents.push([header.textContent, sectionId, startPage]);
   }
   
-  sections = document.getElementsByClassName("section");
+  sections = document.body.getElementsByClassName("section");
   
   for (var i = 0, j = 0; i < sections.length; i++) {
     var section = sections[i],
