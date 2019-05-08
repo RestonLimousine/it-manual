@@ -231,8 +231,9 @@ function buildManual (fileName, text) {
         } else {
           if (section.offsetHeight > pageRemaining && child.childNodes.length > 0) {
             truncateChildren(child, clone);
-          } else if (child.tagName === "TR") {
-            console.log(child);
+          }
+          if (child.tagName === "TR") {
+            console.log(child, section.offsetHeight > pageRemaining, child.childNodes.length);
           }
           if (child.childNodes.length === 0) {
             child.remove();
