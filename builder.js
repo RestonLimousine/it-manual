@@ -131,7 +131,9 @@ function parseItem (item) {
       el[2].push(newRow);
     }
   } else {
-    el[2].push(["tr", ["td"].concat(parseText(item))]);
+    var parsed = parseText(item);
+    console.log(parsed);
+    el[2].push(["tr", ["td"].concat(parsed)]);
   }
   return el;
 }
@@ -220,7 +222,6 @@ function buildManual (fileName, text) {
                 split = _split || ["", "", text];
             child.innerText = split[1];
             clone.innerText = split[2] + clone.innerText;
-            console.log('"' + text + '"', '"' + clone.innerText + '"');
             if (child.innerText === "") {
               child.remove();
               break;
