@@ -216,7 +216,7 @@ function buildManual (fileName, text) {
           while (section.offsetHeight > pageRemaining) {
             var text = child.innerText,
                 _split = text.match(/^([\s\S]*)([ -])(.*)$/),
-                split = _split || ["", "", text],
+                split = _split || ["", "", "", text],
                 _cloneText = clone.innerText,
                 cloneText = _cloneText === "" ? [] : [_cloneText];
             child.innerText = split[1];
