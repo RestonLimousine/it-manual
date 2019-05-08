@@ -216,12 +216,12 @@ function buildManual (fileName, text) {
           while (section.offsetHeight > pageRemaining) {
             var text = child.innerText,
                 _split = text.match(/^(.*)([ \-])([^ \-]+)$/),
-                x = console.log(text, _split),
                 split = _split || ["", "", "", text],
                 _cloneText = clone.innerText,
                 cloneText = _cloneText === "" ? [] : [_cloneText];
             child.innerText = split[1];
             clone.innerText = cloneText.concat([split[3]]).join(split[2]);
+            console.log(text, _split, child.innerText, clone.innerText);
             if (child.innerText === "") {
               child.remove();
               break;
