@@ -238,7 +238,7 @@ function buildManual (fileName, text) {
             child.remove();
           } else if (child.classList.contains("listing-row")) {
             var bulletTd = child.getElementsByClassName("bullet-td")[0],
-                bulletClone = bulletTd.cloneNode(true),
+                bulletClone = bulletTd.cloneNode(),
                 cloneFirstChild = clone.childNodes[0];
             clone.insertBefore(bulletClone, cloneFirstChild);
           }
