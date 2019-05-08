@@ -241,7 +241,8 @@ function buildManual (fileName, text) {
                 bulletClone = bulletTd.cloneNode(),
                 cloneFirstChild = clone.childNodes[0];
             clone.insertBefore(bulletClone, cloneFirstChild);
-            bulletClone.style.width = bulletTd.offsetWidth - bulletClone.offsetWidth;
+            var widthDiff = bulletTd.offsetWidth - bulletClone.offsetWidth;
+            if (widthDiff > 0) bulletClone.style.width = widthDiff;
           }
         }
         
