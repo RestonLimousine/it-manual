@@ -17,7 +17,7 @@ function createElement (el) {
   }
   
   if (tag === "span") {
-    el.innerText = contents[0];
+    el.textContent = contents[0];
   } else {
     contents = buildDoc(contents);
     for (var i = 0; i < contents.length; i++) {
@@ -197,7 +197,7 @@ function buildManual (fileName, text) {
           pageLink = newPage.querySelector(".page-number a");
       
       pageNo++;
-      pageLink.innerText = pageNo;
+      pageLink.textContent = pageNo;
       pageLink.href = "#page-" + pageNo;
       pageLink.id = "page-" + pageNo;
       
@@ -214,21 +214,21 @@ function buildManual (fileName, text) {
         var childNodes = el.childNodes,
             child = childNodes[childNodes.length - 1],
             clone = child.cloneNode();
-        console.log(child.outerHTML, '"' + child.innerText + '"');
+        console.log(child.outerHTML, '"' + child.textContent + '"');
         elClone.insertBefore(clone, elClone.childNodes[0]);
         if (child.tagName === "SPAN") {
           while (section.offsetHeight > pageRemaining) {
-            var text = child.innerText,
+            var text = child.textContent,
                 _split = text.match(/^(.*)([ \-][^ \-]*)$/),
                 split = _split || ["", "", text];
-            child.innerText = split[1];
-            clone.innerText = split[2] + clone.innerText;
-            if (child.innerText === "") {
+            child.textContent = split[1];
+            clone.textContent = split[2] + clone.textContent;
+            if (child.textContent === "") {
               child.remove();
               break;
             }
           }
-          if (child.innerText !== "") {
+          if (child.textContent !== "") {
             atLeastOneLine = true;
             clone.classList.remove("start-num");
           }
@@ -261,7 +261,7 @@ function buildManual (fileName, text) {
       
     }
     
-    if (sectionId) tableOfContents.push([header.innerText, sectionId, startPage]);
+    if (sectionId) tableOfContents.push([header.textContent, sectionId, startPage]);
   }
 
   var pageloc = location.origin + location.pathname + location.search,
