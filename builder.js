@@ -124,7 +124,7 @@ function parseItem (item) {
         var line = parseItem(lines[j]);
         if (lastItem.listStart === line.listStart) {
           if (line.listStart === "#")
-            line[2][1][2][2] = j + lastItem.startNum + ".";
+            line[2][1][2][2] = j - lastItem.startNum + 1 + ".";
           lastItem[2].push(line[2][1]);
         } else if (line.listStart) {
           lastItem = line;
