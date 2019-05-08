@@ -75,7 +75,29 @@ The vast majority of documents that you will need are found in the folder *RLS O
 
 *NOTE*: Be *very* careful what you do in the Share drive!  Do not edit, delete or move documents or folders that do not belong to you.  If you are unsure, ask your manager!
 
-Whenever you open a file on the Share drive, you prevent other users from being able to edit the file. Please be courteous to others and only keep files open for as long as you need to edit them. If someone else is editing a file when you try to open it, a pop-up window will give you the option to open the file in read-only mode. This is fine if all you needed was to read the file, but if you needed to make changes, then you will have to wait for the other user to finish editing. Feel free to send them an email asking them to inform you when they are done with the file. In emergencies, you can open the file in read-only mode, make changes, and save a copy of the file to your U drive (see below), but be advised that these changes will not be in the original file. Do not save copies of files on the Share drive, because this leads to confusion about which file is the most recent one.
+Whenever you open a file on the Share drive, you prevent other users from being able to edit the file. Please be courteous to others and only keep files open for as long as you need to edit them. If someone else is editing a file when you try to open it, a pop-up window will give you the option to open the file in read-only mode. This is fine if all you needed was to read the file, but if you needed to make changes, then you will have to wait for the other user to finish editing. Feel free to send them an email asking them to inform you when they are done with the file. In emergencies, you can open the file in read-only mode, make changes, and save a copy of the file to your U drive (see [link: #to-do]), but be advised that these changes will not be in the original file. Do not save copies of files on the Share drive, because this leads to confusion about which file is the most recent one.
+
+
+
+U Drive
+
+In File Explorer, on the lefthand side underneath the Share drive you will see a drive with your username, something like *jswetnam (\\rls-app\users) (U:)*.  This is called your "U drive", and it is where you can put documents that are for your own use, which you don't intend or aren't ready to share with others.
+
+Whenever you have a file that you don't want to put on the Share drive, it is best practice to put it in your U drive, not on your PC. The following are examples of locations on your PC where you should *not* save files:
+
+# Desktop
+# Documents folder
+# Downloads folder (okay for temporary downloads, but move the file to your U drive if you want to use it later)
+# Pictures and Videos folder
+# Anywhere on the C: drive
+
+It is preferrable to use your U drive, rather than the above locations, for the following reasons:
+
+# Save space on your PC
+  - PCs have limited hard-drive space
+  - Files on the Share and U drives *do not* take up space on your PC
+# Files on the Share and U drives are backed up regularly, so if anything happens, we can retrieve a recent backup
+# Files on the Share and U drives are accessible on other PCs and through the terminal server (more at [link: #to-do]). If you ever switch PCs or work on the terminal server, you will not have access to the files on your PC, but you will have access to those on the Share and U drives.
 
 
 
