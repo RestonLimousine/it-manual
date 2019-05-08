@@ -31,7 +31,9 @@ function createElement (el) {
 function buildDoc (els) {
   var accum = [];
   for (var i = 0; i < els.length; i++) {
-    accum = accum.concat([createElement(els[i])]);
+    var el = createElement(els[i]);
+    console.log(el, '"' + el.innerText + '"');
+    accum = accum.concat([el]);
   }
   return accum;
 }
@@ -132,7 +134,6 @@ function parseItem (item) {
     }
   } else {
     var parsed = parseText(item);
-    console.log(parsed);
     el[2].push(["tr", ["td"].concat(parsed)]);
   }
   return el;
