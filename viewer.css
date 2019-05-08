@@ -14,7 +14,6 @@ body {
   background-color: white;
   padding: 96px;
   width: 624px;
-  line-height: 2em;
   margin-bottom: 48px;
   position: relative;
 }
@@ -60,7 +59,7 @@ body {
 
 .main-title {
   text-align: center;
-  padding-bottom: 1em;
+  padding-bottom: 20px;
   padding-top: 0;
 }
 
