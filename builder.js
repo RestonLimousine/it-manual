@@ -219,7 +219,6 @@ function buildManual (fileName, text) {
                 split = _split || ["", "", text];
             child.innerText = split[1];
             clone.innerText = split[2] + clone.innerText;
-            console.log('"' + text + '"', _split, '"' + child.innerText + '"', '"' + clone.innerText + '"');
             if (child.innerText === "") {
               child.remove();
               break;
@@ -232,6 +231,8 @@ function buildManual (fileName, text) {
         } else {
           if (section.offsetHeight > pageRemaining && child.childNodes.length > 0) {
             truncateChildren(child, clone);
+          } else if (child.tagName === "TR") {
+            console.log(child);
           }
           if (child.childNodes.length === 0) {
             child.remove();
