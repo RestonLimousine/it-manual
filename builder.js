@@ -294,7 +294,8 @@ function buildManual (fileName, text) {
         sectionPage = ["a", {href: "#page-" + cont[2]}, cont[2]],
         div = ["div", {class: "contents-listing"}, sectionName, sectionPage];
     for (var j = 0; j < gotoLinks.length; j++) {
-      if (gotoLinks[j].textContent.trim() === cont[0]) {
+      console.log(gotoLinks[j].textContent, cont[0]);
+      if (gotoLinks[j].textContent.trim() === cont[0].trim()) {
         gotoLinks[j].href = "#" + cont[1];
         gotoLinks[j].classList.remove("goto-link");
       }
