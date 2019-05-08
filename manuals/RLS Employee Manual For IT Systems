@@ -117,7 +117,7 @@ The Terminal Server (TS) is a tool that allows you to access an RLS computer des
 
 The TS is accessed through Remote Desktop Protocol (RDP).  If you are using a Windows computer, you should already have this application installed. If you're using an Apple computer or a mobile device (phone{/}tablet), then you should download the Microsoft Remote Desktop application. Set up will vary depending on which platform you're on, but you will need to add a new desktop. You will need to set the following:
 
-- *PC/Host name or IP address*: remote.restonlimo.com.
+- *PC{/}Host name or IP address*: remote.restonlimo.com.
 - *Username*: The same username you use to log into your RLS PC, but with *RLS\* in front. For instance, if your username is *jdoe*, then your TS username is *RLS\jdoe*.
 - *Password*: The same one that you use to log into your RLS PC.
 
