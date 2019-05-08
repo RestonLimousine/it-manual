@@ -220,7 +220,7 @@ function buildManual (fileName, text) {
                 cloneText = clone.innerText;
             child.innerText = split[1];
             clone.innerText = [cloneText, split[3]].join(split[2]);
-            console.log(text, _split, child.innerText, clone.innerText);
+            console.log('"' + text + '"', _split, '"' + child.innerText + '"', '"' + clone.innerText + '"');
             if (child.innerText === "") {
               child.remove();
               break;
