@@ -108,7 +108,8 @@ function parseItem (item) {
     for (var i = 1; i < listItems.length; i++) {
       var td = ["td", {class: "content-td"}],
           bullet = isOL ? (i + ".") : "\u2022",
-          newRow = ["tr", ["td", {class: "bullet-td"}, bullet], td],
+          bulletTd = ["td", {class: "bullet-td"}, bullet],
+          newRow = ["tr", {class: "listing-row"}, bulletTd, td],
           newIndent = indent + "  ",
           newSplitRe = new RegExp("\\n" + newIndent),
           lines = listItems[i].split(newSplitRe),
@@ -117,7 +118,7 @@ function parseItem (item) {
         var line = parseItem(lines[j]);
         if (lastItem.listStart === line.listStart) {
           if (line.listStart === "#")
-            line[2][1][1][2] = j + lastItem.startNum + ".";
+            line[2][1][2][2] = j + lastItem.startNum + ".";
           lastItem[2].push(line[2][1]);
         } else if (line.listStart) {
           lastItem = line;
@@ -232,11 +233,14 @@ function buildManual (fileName, text) {
           if (section.offsetHeight > pageRemaining && child.childNodes.length > 0) {
             truncateChildren(child, clone);
           }
-          if (child.tagName === "TR") {
-            console.log(child, section.offsetHeight > pageRemaining, child.childNodes.length);
-          }
+          
           if (child.childNodes.length === 0) {
             child.remove();
+          } else if (child.classList.contains("listing-row")) {
+            var bulletTd = child.getElementsByClassName("bullet-td")[0],
+                bulletClone = bulletTd.cloneNode(true),
+                cloneFirstChild = clone.childNodes[0];
+            clone.insertBefore(bulletClone, cloneFirstChild);
           }
         }
         
