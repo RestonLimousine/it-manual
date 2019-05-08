@@ -301,7 +301,9 @@ function fetchAndBuildManual (url) {
       req = new XMLHttpRequest();
   req.onload = function () {
     buildManual(decodeURI(fileName), this.responseText);
-    // location.href = location.href;
+    var hash = location.hash;
+    location.hash = "";
+    location.hash = hash;
   };
   req.open("GET", url);
   req.send();
