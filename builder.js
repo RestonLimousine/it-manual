@@ -214,6 +214,7 @@ function buildManual (fileName, text) {
         var childNodes = el.childNodes,
             child = childNodes[childNodes.length - 1],
             clone = child.cloneNode();
+        console.log(child, '"' + child.innerText + '"');
         elClone.insertBefore(clone, elClone.childNodes[0]);
         if (child.tagName === "SPAN") {
           while (section.offsetHeight > pageRemaining) {
@@ -231,7 +232,6 @@ function buildManual (fileName, text) {
             atLeastOneLine = true;
             clone.classList.remove("start-num");
           }
-          console.log('"' + text + '"', '"' + clone.innerText + '"');
         } else {
           if (section.offsetHeight > pageRemaining && child.childNodes.length > 0) {
             truncateChildren(child, clone);
