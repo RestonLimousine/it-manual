@@ -213,6 +213,7 @@ function buildManual (fileName, text) {
             clone = child.cloneNode();
         elClone.insertBefore(clone, elClone.childNodes[0]);
         if (child.tagName === "SPAN") {
+          console.log(child.innerText);
           while (section.offsetHeight > pageRemaining) {
             var text = child.innerText,
                 _split = text.match(/^([\s\S]*)\n(.*)$/),
@@ -221,7 +222,6 @@ function buildManual (fileName, text) {
                 cloneText = _cloneText === "" ? [] : [_cloneText];
             child.innerText = split[1];
             clone.innerText = cloneText.concat([split[2]]).join("\n");
-            console.log(child.innerText, clone.innerText);
             if (child.innerText === "") {
               child.remove();
               break;
