@@ -81,12 +81,10 @@ function parseText (text) {
         specialEnds = {
           "*": "*",
           "/": "/",
-          "[link:": "]",
-          "[email:": "]",
-          "[goto:": "]",
+          "[": "]",
           "{": "}"
         },
-        specialEnd = specialEnds[specialStart],
+        specialEnd = specialEnds[specialStart[0]],
         textChopped = text.slice(specialStartIdx + specialStart.length),
         specialEndIdx = textChopped.indexOf(specialEnd),
         afterSpecialIdx = specialEndIdx + specialEnd.length,
