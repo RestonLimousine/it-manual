@@ -194,6 +194,8 @@ function buildManual (fileName, text) {
     
     currPage.appendChild(section);
     
+    section.dataset.page = pageNo;
+    
     var sectionHeight = section.offsetHeight;
     
     if (sectionHeight > pageRemaining) {
@@ -214,6 +216,8 @@ function buildManual (fileName, text) {
       
       var atLeastOneLine = false,
           newSection = createElement(["div", {class: "section"}]);
+      
+      newSection.dataset.page = pageNo;
       
       (function truncateChildren (el, elClone) {
         var childNodes = el.childNodes,
