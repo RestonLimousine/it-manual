@@ -294,7 +294,7 @@ function buildManual (fileName, text) {
         sectionPage = ["a", {href: "#page-" + cont[2]}, cont[2]],
         div = ["div", {class: "contents-listing"}, sectionName, sectionPage];
     for (var j = 0; j < gotoLinks.length; j++) {
-      if (gotoLinks[j].textContent === cont[0]) {
+      if (gotoLinks[j].textContent.trim() === cont[0]) {
         gotoLinks[j].href = "#" + cont[1];
         gotoLinks.classList.remove("goto-link");
       }
@@ -302,6 +302,10 @@ function buildManual (fileName, text) {
     div = createElement(div);
     tableOfContentsPage.appendChild(div);
     heightUsed += div.offsetHeight;
+  }
+  
+  if (gotoLinks.length > 0) {
+    throw "Section not found: " + gotoLinks[0].textContent.trim();
   }
 }
 
