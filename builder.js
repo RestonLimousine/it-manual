@@ -215,11 +215,10 @@ function buildManual (fileName, text) {
         if (child.tagName === "SPAN") {
           while (section.offsetHeight > pageRemaining) {
             var text = child.innerText,
-                _split = text.match(/^(.*)([ \-])([^ \-]+)$/),
-                split = _split || ["", "", "", text],
-                cloneText = clone.innerText;
+                _split = text.match(/^(.*)([ \-][^ \-]+)$/),
+                split = _split || ["", "", text];
             child.innerText = split[1];
-            clone.innerText = [cloneText, split[3]].join(split[2]);
+            clone.innerText = split[2] + clone.innerText;
             console.log('"' + text + '"', _split, '"' + child.innerText + '"', '"' + clone.innerText + '"');
             if (child.innerText === "") {
               child.remove();
