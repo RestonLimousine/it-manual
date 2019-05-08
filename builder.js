@@ -276,16 +276,16 @@ function buildManual (fileName, text) {
   
   sections = document.body.getElementsByClassName("section");
   
-  for (var i = 0, j = 0; i < sections.length; i++) {
+  for (var i = 0, j = -1; i < sections.length; i++) {
     var section = sections[i],
         pageNo = section.dataset.page,
         subsections = section.getElementsByClassName("subsection-link");
+    if (section.id) j++;
     for (var k = 0; k < subsections.length; k++) {
       var header = subsections[k].textContent,
           id = headerToId(header);
       tableOfContents[j].push([header, id, pageNo]);
     }
-    if (section.id) j++;
   }
 
   var pageloc = location.origin + location.pathname + location.search,
