@@ -311,12 +311,20 @@ function buildManual (fileName, text) {
   }
   
   var gotoLinks = document.body.getElementsByClassName("goto-link");
+  
+  function makeContentsListing (cont) {
+    var sectionName = ["a", {href: "#" + cont[1]}, cont[0]],
+        sectionPage = ["a", {href: "#page-" + cont[2]}, cont[2]],
+        div = ["div", {class: "contents-listing"}, sectionName, sectionPage];
+    div = contentsListing(div);
+    tableOfContentsPage.appendChild(div);
+    return div;
+  }
 
   for (i = 0; i < tableOfContents.length; i++) {
     var cont = tableOfContents[i],
-        sectionName = ["a", {href: "#" + cont[1]}, cont[0]],
-        sectionPage = ["a", {href: "#page-" + cont[2]}, cont[2]],
-        div = ["div", {class: "contents-listing"}, sectionName, sectionPage];
+        div = makeContentsListing(cont);
+    heightUsed += div.offsetHeight;
     for (var j = 0; j < gotoLinks.length; j++) {
       if (gotoLinks[j].textContent.trim() === cont[0].trim()) {
         gotoLinks[j].href = "#" + cont[1];
@@ -324,10 +332,10 @@ function buildManual (fileName, text) {
         j--;
       }
     }
-    console.log(tableOfContents[i]);
-    div = createElement(div);
-    tableOfContentsPage.appendChild(div);
-    heightUsed += div.offsetHeight;
+    for (var k = 3; k < cont.length; k++) {
+      div = makeContentsListing(cont[k]);
+      div.classList.add("subsection-contents-listing");
+    }
   }
   
   if (gotoLinks.length > 0) {
