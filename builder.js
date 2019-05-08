@@ -44,14 +44,13 @@ function parseNotation (start, text) {
       content = [text],
       target = "_blank";
   switch (start) {
+    case "[goto:":
+      attrs.class = "goto-link";
     case "[email:":
-      hrefPrefix = "mailto:";
+      hrefPrefix = hrefPrefix || "mailto:";
     case "[phone:":
       hrefPrefix = hrefPrefix || "tel:";
-    case "[goto:":
       target = "";
-      hrefPrefix = hrefPrefix || "#";
-      // To Do: get section id from name
     case "[link:":
       tag = "a";
       text = text.trim();
@@ -286,12 +285,20 @@ function buildManual (fileName, text) {
   for (i = 0; i < tableOfContentsPage.childNodes.length; i++) {
     heightUsed += tableOfContentsPage.childNodes[i].offsetHeight;
   }
+  
+  var gotoLinks = document.body.getElementsByClassName("goto-link");
 
   for (i = 0; i < tableOfContents.length; i++) {
     var cont = tableOfContents[i],
         sectionName = ["a", {href: "#" + cont[1]}, cont[0]],
         sectionPage = ["a", {href: "#page-" + cont[2]}, cont[2]],
         div = ["div", {class: "contents-listing"}, sectionName, sectionPage];
+    for (var j = 0; j < gotoLinks.length; j++) {
+      if (gotoLinks[j].textContent === cont[0]) {
+        gotoLinks[j].href = "#" + cont[1];
+        gotoLinks.classList.remove("goto-link");
+      }
+    }
     div = createElement(div);
     tableOfContentsPage.appendChild(div);
     heightUsed += div.offsetHeight;
