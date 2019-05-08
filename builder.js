@@ -296,7 +296,7 @@ function buildManual (fileName, text) {
     for (var j = 0; j < gotoLinks.length; j++) {
       if (gotoLinks[j].textContent.trim() === cont[0]) {
         gotoLinks[j].href = "#" + cont[1];
-        gotoLinks.classList.remove("goto-link");
+        gotoLinks[j].classList.remove("goto-link");
       }
     }
     div = createElement(div);
