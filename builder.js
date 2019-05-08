@@ -215,7 +215,6 @@ function buildManual (fileName, text) {
             clone = child.cloneNode();
         elClone.insertBefore(clone, elClone.childNodes[0]);
         if (child.tagName === "SPAN") {
-          console.log('"' + child.innerText + '"');
           while (section.offsetHeight > pageRemaining) {
             var text = child.innerText,
                 _split = text.match(/^(.*)([ \-][^ \-]*)$/),
