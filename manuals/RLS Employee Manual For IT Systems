@@ -69,7 +69,7 @@ Be aware that hardware may be moved around from time to time as the company's ne
 
 Share Drive
 
-The Share drive is where most RLS documents are found.  It should be accessible from any office PC and the terminal server (more on that at [link: #to-do]).
+The Share drive is where most RLS documents are found.  It should be accessible from any office PC and the [goto: Terminal Server].
 
 To access the Share drive, open File Explorer (search for it in the search bar, open it, then pin the icon to the taskbar).  On the lefthand side of the window, under "This PC", you should see "share (\\rls-app) (S:)".  Click on it, and you will see a listing of folders and files on the right.
 
@@ -83,7 +83,7 @@ The vast majority of documents that you will need are found in the folder *RLS O
 
 *NOTE*: Be *very* careful what you do in the Share drive!  Do not edit, delete or move documents or folders that do not belong to you.  If you are unsure, ask your manager!
 
-Whenever you open a file on the Share drive, you prevent other users from being able to edit the file. Please be courteous to others and only keep files open for as long as you need to edit them. If someone else is editing a file when you try to open it, a pop-up window will give you the option to open the file in read-only mode. This is fine if all you needed was to read the file, but if you needed to make changes, then you will have to wait for the other user to finish editing. Feel free to send them an email asking them to inform you when they are done with the file. In emergencies, you can open the file in read-only mode, make changes, and save a copy of the file to your U drive (see [link: #to-do]), but be advised that these changes will not be in the original file. Do not save copies of files on the Share drive, because this leads to confusion about which file is the most recent one.
+Whenever you open a file on the Share drive, you prevent other users from being able to edit the file. Please be courteous to others and only keep files open for as long as you need to edit them. If someone else is editing a file when you try to open it, a pop-up window will give you the option to open the file in read-only mode. This is fine if all you needed was to read the file, but if you needed to make changes, then you will have to wait for the other user to finish editing. Feel free to send them an email asking them to inform you when they are done with the file. In emergencies, you can open the file in read-only mode, make changes, and save a copy of the file to your [goto: U Drive], but be advised that these changes will not be in the original file. Do not save copies of files on the Share drive, because this leads to confusion about which file is the most recent one.
 
 Most users should not create new files or folders on the Share drive. Ask your manager first.  You can always create new files on your U drive (see below), email them to your manager to approval, then move them to the Share drive when approved.
 
@@ -105,7 +105,7 @@ It is preferrable to use your U drive, rather than the above locations, for the 
 
 # Save space on your PC. PCs have limited hard-drive space, and files on the Share and U drives *do not* take up space on your PC.
 # Files on the Share and U drives are backed up regularly, so if anything happens, we can retrieve a recent backup.
-# Files on the Share and U drives are accessible on other PCs and through the terminal server (more at [link: #to-do]). If you ever switch PCs or work on the terminal server, you will not have access to the files on your PC, but you will have access to those on the Share and U drives.
+# Files on the Share and U drives are accessible on other PCs and through the [goto: Terminal Server]. If you ever switch PCs or work on the terminal server, you will not have access to the files on your PC, but you will have access to those on the Share and U drives.
 
 
 
@@ -140,6 +140,5 @@ TO DO
 # How to check voicemail
 # Voicemail should go to email
 # How to update AD info
-# jumpto: link
-# phone linkes
+# subsections
 # Office 365
